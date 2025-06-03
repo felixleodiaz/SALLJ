@@ -1,0 +1,72 @@
+# Copied and modified from https://github.com/ivalencius/GPLLJ/blob/GHCNh/environment.yml
+channels:
+- conda-forge
+- nodefaults
+dependencies:
+- python==3.12.*
+- aiohttp
+- altair
+- cartopy
+- cdsapi
+- cfgrib
+- cfunits
+- cmocean
+- dask
+- dask-jobqueue
+- distributed
+- easygems
+- fastparquet
+- flox
+- h5netcdf
+- hdf5plugin
+- healpix
+- healpy
+- hvplot
+- intake==0.7.0
+- intake-esm
+- intake-stac
+- intake-xarray==0.7.0
+- ipykernel
+- iris
+- jupyter
+- jupyterlab
+- jupytext
+- libnetcdf>=4.9.2
+- matplotlib
+- metpy
+- netcdf4
+- numba
+- numpy
+- odc-stac
+- opencv
+- pandas
+- polars
+- pyflextrkr
+- pystac
+- pytest
+- requests
+- rioxarray
+- ruff
+- s3fs
+- scipy
+- seaborn
+- sh
+- spectrum
+- tobac
+- tokenizers
+- tqdm
+- types-pyyaml
+- uxarray
+- xarray
+- xdggs
+- xgcm
+- zarr<3.0.0
+- pip
+- pip:
+  - isd-fetch
+  - gribscan
+  - pymannkendall
+  - rich
+  - xmip
+
+name: llj

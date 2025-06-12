@@ -5,7 +5,7 @@ import numpy as np
 
 # create grid w regional bounds here (south american LLJ)
 
-xmin, xmax, ymin, ymax = -105+360, -90+360, 25, 50
+xmin, xmax, ymin, ymax = 55, 65, 15, 20
 latitudes = np.arange(ymin, ymax + 1, 0.5)
 longitudes = np.arange(xmin, xmax + 1, 0.5)
 

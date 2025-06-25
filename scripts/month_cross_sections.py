@@ -16,7 +16,7 @@ col = intake.open_esm_datastore(url)
 
 # load some monthly data from the GFDL-CM4 4-K warming experiment
 
-query = dict(experiment_id =['amip-hist', 'amip-p4K', 'amip-m4K'],
+query = dict(experiment_id =['amip', 'amip-p4K', 'amip-m4K'],
              variable_id=['ua', 'va'],
              source_id=['GFDL-CM4'],
              table_id='Amon'

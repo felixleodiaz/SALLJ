@@ -53,35 +53,23 @@ for i, mon in enumerate(months, start=1):
 
 # plot
 
-titles = [f'{mon} Meridional Wind' for mon in months]
-
 all_data = ds.va.sel(x=slice(280, 320), y=-20.5)
-global_min = all_data.min().item() # compute global min and max
-global_max = all_data.max().item()
+global_min = all_data.min() # compute global min and max
+global_max = all_data.max()
 
+sns.axes_style('dark')
 fig, axes = plt.subplots(nrows=3, ncols=4, figsize=(12, 8), sharey=True)
 axes = axes.flatten()
 
-im = None
-for i, (ax, mon) in enumerate(zip(axes, months)):
-    data = all_data[i].assign_coords(plev=ds['plev'] / 100)
-    im = data.plot(ax=ax, vmin=global_min, vmax=global_max, add_colorbar=False)
+for ax, mon in zip(axes, months):
+    im = monthly_data[mon].va.sel(x=slice(280, 320), y=-20.5).assign_coords(plev=ds['plev'] / 100).plot(ax=ax, add_colorbar=False)
     ax.set_ylim(1000, 400)
-    ax.set_title(titles[i])
+    ax.set_title(f'{mon} Meridional Wind')
     ax.set_xlabel('Longitude (°E)')
-    if i % 4 == 0:
-        ax.set_ylabel('Pressure (hPa)')
-    else:
-        ax.set_ylabel('')
+    ax.set_ylabel('Pressure (hPa)')
 
 cbar_ax = fig.add_axes([0.92, 0.15, 0.02, 0.7])  # [left, bottom, width, height]
-fig.colorbar(im, cax=cbar_ax, label='Meridional Wind (units)')  # Adjust label as needed
-
-fig.suptitle(
-    'South American Low-Level Jet Wind Profiles\nMonthly Averages 1979–2012 with +4K Forcing',
-    fontsize=16,
-    y=1.03
-)
+fig.colorbar(im, cax=cbar_ax, label='Average Meridional Wind Speed (m/s)')  # Adjust label as needed
 
 plt.tight_layout(rect=[0, 0, 0.9, 1])  # Leave space for colorbar and title
 plt.savefig('../figures/MonthAverages.png', dpi=300)

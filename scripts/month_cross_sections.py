@@ -6,11 +6,7 @@ import numpy as np
 import pandas as pd
 import intake
 import dask
-import regionmask
-import warnings
-from pathlib import Path
-from tqdm import tqdm
-from xmip.preprocessing import combined_preprocessing, replace_x_y_nominal_lat_lon
+from xmip.preprocessing import combined_preprocessing
 import matplotlib.pyplot as plt
 
 # link to data

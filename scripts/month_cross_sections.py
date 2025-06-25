@@ -62,7 +62,7 @@ for i, (ax, mon) in enumerate(zip(axes, months)):
     ax.set_ylim(1000, 400)
     ax.set_title(f'{mon} Meridional Wind')
     xlab = 'Longitude (°E)' if i // 4 ==2 else ''
-    ylab = 'Longitude (°E)' if i % 4 == 0 else ''
+    ylab = 'Pressure (hPa)' if i % 4 == 0 else ''
     ax.set_xlabel(xlab)
     ax.set_ylabel(ylab)
 

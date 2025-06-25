@@ -61,16 +61,18 @@ sns.axes_style('dark')
 fig, axes = plt.subplots(nrows=3, ncols=4, figsize=(12, 8), sharey=True)
 axes = axes.flatten()
 
-for ax, mon in zip(axes, months):
+for i, (ax, mon) in enumerate(zip(axes, months)):
     im = monthly_data[mon].va.sel(x=slice(280, 320), y=-20.5).assign_coords(plev=ds['plev'] / 100).plot(ax=ax, add_colorbar=False)
     ax.set_ylim(1000, 400)
     ax.set_title(f'{mon} Meridional Wind')
-    ax.set_xlabel('Longitude (°E)')
-    ax.set_ylabel('Pressure (hPa)')
+    xlab = 'Longitude (°E)' if i // 4 ==2 else ''
+    ylab = 'Longitude (°E)' if i % 4 == 0 else ''
+    ax.set_xlabel(xlab)
+    ax.set_ylabel(ylab)
 
 cbar_ax = fig.add_axes([0.92, 0.15, 0.02, 0.7])  # [left, bottom, width, height]
 fig.colorbar(im, cax=cbar_ax, label='Average Meridional Wind Speed (m/s)')  # Adjust label as needed
 
 plt.tight_layout(rect=[0, 0, 0.9, 1])  # Leave space for colorbar and title
-plt.savefig('../figures/MonthAverages.png', dpi=300)
+plt.savefig('../figures/MonthAverageCrossSections.png', dpi=300)
 plt.show()

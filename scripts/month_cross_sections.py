@@ -164,7 +164,7 @@ cbar_ax = fig.add_axes([0.92, 0.15, 0.02, 0.7])  # [left, bottom, width, height]
 fig.colorbar(im, cax=cbar_ax, label='Average Meridional Wind Speed (m/s)')  # Adjust label as needed
 
 plt.tight_layout(rect=[0, 0, 0.9, 1])  # Leave space for colorbar and title
-plt.savefig('../figures/MonthAverageCrossSections.png', dpi=300)
+plt.savefig('../figures/MonthAverageCrossSectionsWarmingAnom.png', dpi=300)
 plt.show()
 
 # plot cooling anomoly
@@ -189,5 +189,5 @@ cbar_ax = fig.add_axes([0.92, 0.15, 0.02, 0.7])  # [left, bottom, width, height]
 fig.colorbar(im, cax=cbar_ax, label='Average Meridional Wind Speed (m/s)')  # Adjust label as needed
 
 plt.tight_layout(rect=[0, 0, 0.9, 1])  # Leave space for colorbar and title
-plt.savefig('../figures/MonthAverageCrossSections.png', dpi=300)
+plt.savefig('../figures/MonthAverageCrossSectionsCoolingAnom.png', dpi=300)
 plt.show()

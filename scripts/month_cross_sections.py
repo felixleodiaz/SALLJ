@@ -54,7 +54,7 @@ global_min = all_data.min() # compute global min and max
 global_max = all_data.max()
 
 sns.axes_style('dark')
-fig, axes = plt.subplots(nrows=3, ncols=4, figsize=(12, 8), sharey=True)
+fig, axes = plt.subplots(nrows=3, ncols=4, figsize=(12, 8), sharey=True, sharex=True)
 axes = axes.flatten()
 
 for i, (ax, mon) in enumerate(zip(axes, months)):

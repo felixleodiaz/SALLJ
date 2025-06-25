@@ -53,7 +53,7 @@ all_data = ds.va.sel(x=slice(280, 320), y=-20.5)
 global_min = all_data.min() # compute global min and max
 global_max = all_data.max()
 
-sns.axes_style('dark')
+sns.set_style('white')
 fig, axes = plt.subplots(nrows=3, ncols=4, figsize=(12, 8), sharey=True, sharex=True)
 axes = axes.flatten()
 

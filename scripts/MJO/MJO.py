@@ -31,7 +31,7 @@ print(f"Data dir   : {DATA_DIR}")
 N_BOOTSTRAP      = 5000
 MAX_LAG          = 25
 AMPLITUDE_THRESH = 1.0
-N_JOBS           = 200
+N_JOBS           = int(os.environ.get('SLURM_CPUS_PER_TASK', 4))
 
 SEASONS = {
     'ALL': list(range(1, 13)),

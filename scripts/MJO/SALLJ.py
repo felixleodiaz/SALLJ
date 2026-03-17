@@ -9,7 +9,7 @@ import pandas as pd
 import xarray as xr
 import intake
 import dask
-from dask.distributed import Client, progress
+from dask.distributed import Client, LocalCluster
 from xmip.preprocessing import combined_preprocessing
 
 
@@ -31,7 +31,18 @@ print(f"Data dir   : {DATA_DIR}")
 
 # 1: setup dask client
 
-client = Client(n_workers=200, threads_per_worker=1, memory_limit='1GB')
+print("Initializing Dask cluster")
+n_cpus = int(os.environ.get('SLURM_CPUS_PER_TASK', 4))
+
+cluster = LocalCluster(
+
+    n_workers=n_cpus,
+    threads_per_worker=1,
+    memory_limit='4GB', 
+    dashboard_address=':0' 
+)
+
+client = Client(cluster)
 print(client)
 print(f"Dashboard: {client.dashboard_link}\n")
 

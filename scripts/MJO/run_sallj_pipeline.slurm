@@ -1,10 +1,10 @@
 #!/bin/bash
-#SBATCH --job-name=sallj_detect
+#SBATCH --job-name=sallj
 #SBATCH --output=/home/%u/SALLJ/logs/detect_%j.out
 #SBATCH --error=/home/%u/SALLJ/logs/detect_%j.err
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=200
-#SBATCH --mem=200G
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=128G
 #SBATCH --time=06:00:00
 #SBATCH --partition=hpc
 

@@ -3,7 +3,7 @@
 #SBATCH --output=/home/%u/SALLJ/logs/detect_%j.out
 #SBATCH --error=/home/%u/SALLJ/logs/detect_%j.err
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=16
+#SBATCH --cpus-per-task=32
 #SBATCH --mem=128G
 #SBATCH --time=06:00:00
 #SBATCH --partition=hpc
@@ -54,20 +54,6 @@ fi
 
 echo ""
 echo "Compositing complete at $(date)"
-
-# Cleanup: delete intermediate CSVs written to local_data/MJO/
-# Raw CMIP data in /scratch/fld1/cmip_cache is NOT deleted — keep it.
-# Final outputs (PNGs + lag table CSVs in figures/MJO/) are NOT deleted.
-
-DATA_DIR="$HOME/SALLJ/local_data/MJO"
-
-echo ""
-echo "Cleaning up intermediate files..."
-rm -f "$DATA_DIR/sallj_index_full.csv" \
-      "$DATA_DIR/sallj_monthly_clim.csv" \
-      "$DATA_DIR/sallj_monthly_thresh.csv"
-echo "Deleted intermediate CSVs from $DATA_DIR"
-
 
 # print summary
 

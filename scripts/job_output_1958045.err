@@ -1,7 +1,0 @@
-/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import DistributionNotFound, get_distribution
-Traceback (most recent call last):
-  File "/home/fld1/SALLJ/scripts/month_cross_sections.py", line 37, in <module>
-    dsh = dset_dict['CMIP.NOAA-GFDL.GFDL-CM4.amip.Amon.gr1']
-          ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-KeyError: 'CMIP.NOAA-GFDL.GFDL-CM4.amip.Amon.gr1'

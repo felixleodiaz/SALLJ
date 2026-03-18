@@ -1,5 +1,0 @@
-['GFDL-CM4']
-
---> The keys in the returned dictionary of datasets are constructed as follows:
-	'activity_id.institution_id.source_id.experiment_id.table_id.grid_label'
-█ |----------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████| 100.00% [1/1 00:28<00:00]

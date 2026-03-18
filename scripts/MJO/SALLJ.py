@@ -178,17 +178,16 @@ if __name__ == '__main__':
 
     hist_series_list = []
 
-    for member in HIST_MEMBERS:
+    hist_ds = hist_dict['CMIP.MRI.MRI-ESM2-0.historical.day.gn']
 
-        # find the dataset key for this member
-        key = [k for k in hist_dict if member in k]
-        if not key:
-            print(f"WARNING: {member} not found in loaded datasets, skipping.")
+    for member in HIST_MEMBERS:
+        if member not in hist_ds.member_id.values:
+            print(f"WARNING: {member} not found in dataset, skipping.")
             continue
-        ds = hist_dict[key[0]]
         print(f"Processing historical {member}...")
+        ds_member = hist_ds.sel(member_id=member)
         s = compute_llj_index(
-            ds, LAT_S, LAT_N, LON_W, LON_E,
+            ds_member, LAT_S, LAT_N, LON_W, LON_E,
             PLEV_850, HIST_START, HIST_END, member
         )
         hist_series_list.append(s)

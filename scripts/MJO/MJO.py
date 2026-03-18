@@ -20,7 +20,7 @@ FIG_DIR     = PROJECT_DIR / 'figures' / 'MJO'
 DATA_DIR    = PROJECT_DIR / 'local_data' / 'MJO'
 
 N_BOOTSTRAP      = 5000
-MAX_LAG          = 25
+MAX_LAG          = 60
 AMPLITUDE_THRESH = 1.0
 
 SEASONS = {
@@ -418,7 +418,7 @@ if __name__ == '__main__':
         print("  SSP585 compositing requires a model-derived MJO index.")
 
     # summary
-    
+
     print("\n\nSummary of output files:")
     for f in sorted(FIG_DIR.iterdir()):
         size_kb = f.stat().st_size / 1024

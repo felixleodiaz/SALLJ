@@ -1,0 +1,93 @@
+
+Job:         1988644
+Node:        hpc06
+CPUs:        16
+Script dir:  /home/fld1/SALLJ/scripts/MJO
+Started:     Tue Mar 17 19:10:12 EDT 2026
+
+[1/2] Running SALLJ detection
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Initializing Dask cluster
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Initializing Dask cluster
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Initializing Dask cluster
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Initializing Dask cluster
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Initializing Dask cluster
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Initializing Dask cluster
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Initializing Dask cluster
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Initializing Dask cluster
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Initializing Dask cluster
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Initializing Dask cluster
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Initializing Dask cluster
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Initializing Dask cluster
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Initializing Dask cluster
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Initializing Dask cluster
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Initializing Dask cluster
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Initializing Dask cluster
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Initializing Dask cluster

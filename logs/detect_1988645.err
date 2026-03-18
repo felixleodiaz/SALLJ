@@ -1,0 +1,25 @@
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+Traceback (most recent call last):
+  File "/home/fld1/SALLJ/scripts/MJO/SALLJ.py", line 199, in <module>
+    hist_df = pd.concat(hist_series_list, axis=1)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/pandas/core/reshape/concat.py", line 382, in concat
+    op = _Concatenator(
+         ^^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/pandas/core/reshape/concat.py", line 445, in __init__
+    objs, keys = self._clean_keys_and_objs(objs, keys)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/pandas/core/reshape/concat.py", line 507, in _clean_keys_and_objs
+    raise ValueError("No objects to concatenate")
+ValueError: No objects to concatenate

@@ -1,0 +1,232 @@
+
+Job:         1988643
+Node:        hpc05
+CPUs:        200
+Script dir:  /home/fld1/SALLJ/scripts/MJO
+Started:     Tue Mar 17 16:44:08 EDT 2026
+
+[1/2] Running SALLJ detection
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO

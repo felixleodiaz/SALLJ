@@ -1,0 +1,44 @@
+
+Job:         1988645
+Node:        hpc06
+CPUs:        32
+Script dir:  /home/fld1/SALLJ/scripts/MJO
+Started:     Tue Mar 17 19:46:13 EDT 2026
+
+[1/2] Running SALLJ detection
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Initializing Dask cluster
+<Client: 'tcp://127.0.0.1:33119' processes=32 threads=32, memory=119.21 GiB>
+Dashboard: http://127.0.0.1:39679/status
+
+Historical entries found:
+  experiment_id member_id
+0    historical  r1i1p1f1
+1    historical  r5i1p1f1
+2    historical  r2i1p1f1
+3    historical  r3i1p1f1
+4    historical  r4i1p1f1
+
+SSP585 entries found:
+  experiment_id member_id
+0        ssp585  r1i1p1f1
+
+--> The keys in the returned dictionary of datasets are constructed as follows:
+	'activity_id.institution_id.source_id.experiment_id.table_id.grid_label'
+█ |----------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████| 100.00% [1/1 02:10<00:00]
+--> The keys in the returned dictionary of datasets are constructed as follows:
+	'activity_id.institution_id.source_id.experiment_id.table_id.grid_label'
+█ |----------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████| 100.00% [1/1 00:30<00:00]
+Historical dataset keys:
+  CMIP.MRI.MRI-ESM2-0.historical.day.gn
+SSP585 dataset keys:
+  ScenarioMIP.MRI.MRI-ESM2-0.ssp585.day.gn
+WARNING: r1i1p1f1 not found in loaded datasets, skipping.
+WARNING: r2i1p1f1 not found in loaded datasets, skipping.
+WARNING: r3i1p1f1 not found in loaded datasets, skipping.
+WARNING: r4i1p1f1 not found in loaded datasets, skipping.
+WARNING: r5i1p1f1 not found in loaded datasets, skipping.
+ERROR: Detection script failed with exit code 1

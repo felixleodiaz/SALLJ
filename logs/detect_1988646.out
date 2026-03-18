@@ -1,0 +1,280 @@
+
+Job:         1988646
+Node:        hpc06
+CPUs:        32
+Script dir:  /home/fld1/SALLJ/scripts/MJO
+Started:     Tue Mar 17 20:46:26 EDT 2026
+
+[1/2] Running SALLJ detection
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Initializing Dask cluster
+<Client: 'tcp://127.0.0.1:38691' processes=32 threads=32, memory=119.21 GiB>
+Dashboard: http://127.0.0.1:46041/status
+
+Historical entries found:
+  experiment_id member_id
+0    historical  r1i1p1f1
+1    historical  r5i1p1f1
+2    historical  r2i1p1f1
+3    historical  r3i1p1f1
+4    historical  r4i1p1f1
+
+SSP585 entries found:
+  experiment_id member_id
+0        ssp585  r1i1p1f1
+
+--> The keys in the returned dictionary of datasets are constructed as follows:
+	'activity_id.institution_id.source_id.experiment_id.table_id.grid_label'
+█ |----------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████| 100.00% [1/1 01:53<00:00]
+--> The keys in the returned dictionary of datasets are constructed as follows:
+	'activity_id.institution_id.source_id.experiment_id.table_id.grid_label'
+█ |----------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████| 100.00% [1/1 00:28<00:00]
+Historical dataset keys:
+  CMIP.MRI.MRI-ESM2-0.historical.day.gn
+SSP585 dataset keys:
+  ScenarioMIP.MRI.MRI-ESM2-0.ssp585.day.gn
+Processing historical r1i1p1f1...
+  r1i1p1f1: 13149 days, mean=-3.03 m/s
+Processing historical r2i1p1f1...
+  r2i1p1f1: 13149 days, mean=-3.08 m/s
+Processing historical r3i1p1f1...
+  r3i1p1f1: 13149 days, mean=-3.14 m/s
+Processing historical r4i1p1f1...
+  r4i1p1f1: 13149 days, mean=-2.99 m/s
+Processing historical r5i1p1f1...
+  r5i1p1f1: 13149 days, mean=-3.09 m/s
+
+Historical LLJ DataFrame shape: (13149, 5)
+(rows=days, cols=members)
+
+Processing ssp585 (ScenarioMIP.MRI.MRI-ESM2-0.ssp585.day.gn)...
+SSP585: 31411 days, mean=-3.21 m/s
+
+Historical monthly climatology (m/s):
+  Jan: -2.06
+  Feb: -1.46
+  Mar: -1.81
+  Apr: -3.25
+  May: -3.89
+  Jun: -4.17
+  Jul: -4.62
+  Aug: -4.31
+  Sep: -3.31
+  Oct: -2.57
+  Nov: -2.78
+  Dec: -2.46
+
+Monthly 20th-percentile thresholds (m/s):
+  Jan: -5.67
+  Feb: -4.93
+  Mar: -5.56
+  Apr: -7.17
+  May: -8.03
+  Jun: -8.69
+  Jul: -9.41
+  Aug: -9.28
+  Sep: -8.21
+  Oct: -7.04
+  Nov: -6.89
+  Dec: -6.30
+
+Output DataFrame shape: (97156, 6)
+        time    member  experiment  llj_index  llj_anom  active
+0 1979-01-01  r1i1p1f1  historical  -8.165689 -6.107009    True
+1 1979-01-02  r1i1p1f1  historical  -5.567279 -3.508598   False
+2 1979-01-03  r1i1p1f1  historical  -5.820518 -3.761837    True
+3 1979-01-04  r1i1p1f1  historical  -8.852269 -6.793589    True
+4 1979-01-05  r1i1p1f1  historical  -7.868651 -5.809970    True
+5 1979-01-06  r1i1p1f1  historical  -7.644458 -5.585778    True
+6 1979-01-07  r1i1p1f1  historical  -1.596311  0.462370   False
+7 1979-01-08  r1i1p1f1  historical  -0.251875  1.806806   False
+8 1979-01-09  r1i1p1f1  historical  -3.490315 -1.431634   False
+9 1979-01-10  r1i1p1f1  historical  -1.930294  0.128386   False
+
+Saved: /home/fld1/SALLJ/local_data/MJO/sallj_index_full.csv
+Saved: /home/fld1/SALLJ/local_data/MJO/sallj_monthly_clim.csv
+Saved: /home/fld1/SALLJ/local_data/MJO/sallj_monthly_thresh.csv
+Saved: /home/fld1/SALLJ/figures/MJO/sallj_timeseries_all_members.png
+Saved: /home/fld1/SALLJ/figures/MJO/sallj_climatology_all_members.png
+Saved: /home/fld1/SALLJ/figures/MJO/sallj_annual_trend.png
+
+Dask client closed. Detection complete.
+
+Detection complete at Tue Mar 17 20:52:03 EDT 2026
+
+[2/2] Running MJO compositing
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+RMM loaded: 1974-06-01 to 2024-02-24
+LLJ data loaded: 97156 rows
+Members: ['r1i1p1f1' 'r2i1p1f1' 'r3i1p1f1' 'r4i1p1f1' 'r5i1p1f1']
+Experiments: ['historical' 'ssp585']
+Date range: 1979-01-01 to 2100-12-31
+
+Historical LLJ rows: 65745
+Unique members: ['r1i1p1f1' 'r2i1p1f1' 'r3i1p1f1' 'r4i1p1f1' 'r5i1p1f1']
+
+============================================================
+  Season: ALL  (months [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+============================================================
+  Total active MJO member-days: 40285
+  Phase distribution:
+phase
+1    5585
+2    5345
+3    4685
+4    4770
+5    5260
+6    5245
+7    4915
+8    4480
+Name: count, dtype: int64
+  Running bootstrap (N=5000, 32 parallel workers)
+  Saved: /home/fld1/SALLJ/figures/MJO/mjo_sallj_lag_table_hist_ALL.csv
+  Saved: /home/fld1/SALLJ/figures/MJO/mjo_sallj_heatmap_hist_ALL.png
+  Saved: /home/fld1/SALLJ/figures/MJO/mjo_sallj_barplot_hist_ALL.png
+
+============================================================
+  Season: DJF  (months [12, 1, 2])
+============================================================
+  Total active MJO member-days: 10405
+  Phase distribution:
+phase
+1     795
+2    1110
+3    1540
+4    1330
+5    1225
+6    1445
+7    1815
+8    1145
+Name: count, dtype: int64
+  Running bootstrap (N=5000, 32 parallel workers)
+  Saved: /home/fld1/SALLJ/figures/MJO/mjo_sallj_lag_table_hist_DJF.csv
+  Saved: /home/fld1/SALLJ/figures/MJO/mjo_sallj_heatmap_hist_DJF.png
+  Saved: /home/fld1/SALLJ/figures/MJO/mjo_sallj_barplot_hist_DJF.png
+
+============================================================
+  Season: MAM  (months [3, 4, 5])
+============================================================
+  Total active MJO member-days: 10760
+  Phase distribution:
+phase
+1    1470
+2    1265
+3    1295
+4    1305
+5    1160
+6    1290
+7    1480
+8    1495
+Name: count, dtype: int64
+  Running bootstrap (N=5000, 32 parallel workers)
+  Saved: /home/fld1/SALLJ/figures/MJO/mjo_sallj_lag_table_hist_MAM.csv
+  Saved: /home/fld1/SALLJ/figures/MJO/mjo_sallj_heatmap_hist_MAM.png
+  Saved: /home/fld1/SALLJ/figures/MJO/mjo_sallj_barplot_hist_MAM.png
+
+============================================================
+  Season: JJA  (months [6, 7, 8])
+============================================================
+  Total active MJO member-days: 9220
+  Phase distribution:
+phase
+1    2040
+2    1495
+3     785
+4     815
+5    1160
+6    1215
+7     840
+8     870
+Name: count, dtype: int64
+  Running bootstrap (N=5000, 32 parallel workers)
+  Saved: /home/fld1/SALLJ/figures/MJO/mjo_sallj_lag_table_hist_JJA.csv
+  Saved: /home/fld1/SALLJ/figures/MJO/mjo_sallj_heatmap_hist_JJA.png
+  Saved: /home/fld1/SALLJ/figures/MJO/mjo_sallj_barplot_hist_JJA.png
+
+============================================================
+  Season: SON  (months [9, 10, 11])
+============================================================
+  Total active MJO member-days: 9900
+  Phase distribution:
+phase
+1    1280
+2    1475
+3    1065
+4    1320
+5    1715
+6    1295
+7     780
+8     970
+Name: count, dtype: int64
+  Running bootstrap (N=5000, 32 parallel workers)
+  Saved: /home/fld1/SALLJ/figures/MJO/mjo_sallj_lag_table_hist_SON.csv
+  Saved: /home/fld1/SALLJ/figures/MJO/mjo_sallj_heatmap_hist_SON.png
+  Saved: /home/fld1/SALLJ/figures/MJO/mjo_sallj_barplot_hist_SON.png
+
+============================================================
+  SSP585 composite (r1i1p1f1, all seasons)
+============================================================
+    SSP585 x RMM overlap: 2167 active MJO days
+     NOTE: RMM overlap limited to observed period; interpret with caution.
+  Saved: /home/fld1/SALLJ/figures/MJO/mjo_sallj_lag_table_ssp585_ALL.csv
+  Saved: /home/fld1/SALLJ/figures/MJO/mjo_sallj_heatmap_ssp585_ALL.png
+
+
+Summary of output files:
+  /home/fld1/SALLJ/figures/MJO/mjo_sallj_barplot_hist_ALL.png               52.1 kB
+  /home/fld1/SALLJ/figures/MJO/mjo_sallj_barplot_hist_DJF.png               52.4 kB
+  /home/fld1/SALLJ/figures/MJO/mjo_sallj_barplot_hist_JJA.png               53.8 kB
+  /home/fld1/SALLJ/figures/MJO/mjo_sallj_barplot_hist_MAM.png               55.5 kB
+  /home/fld1/SALLJ/figures/MJO/mjo_sallj_barplot_hist_SON.png               55.1 kB
+  /home/fld1/SALLJ/figures/MJO/mjo_sallj_heatmap_hist_ALL.png              145.2 kB
+  /home/fld1/SALLJ/figures/MJO/mjo_sallj_heatmap_hist_DJF.png              144.4 kB
+  /home/fld1/SALLJ/figures/MJO/mjo_sallj_heatmap_hist_JJA.png              140.6 kB
+  /home/fld1/SALLJ/figures/MJO/mjo_sallj_heatmap_hist_MAM.png              147.6 kB
+  /home/fld1/SALLJ/figures/MJO/mjo_sallj_heatmap_hist_SON.png              136.5 kB
+  /home/fld1/SALLJ/figures/MJO/mjo_sallj_heatmap_ssp585_ALL.png            147.1 kB
+  /home/fld1/SALLJ/figures/MJO/mjo_sallj_lag_table_hist_ALL.csv             15.9 kB
+  /home/fld1/SALLJ/figures/MJO/mjo_sallj_lag_table_hist_DJF.csv             15.4 kB
+  /home/fld1/SALLJ/figures/MJO/mjo_sallj_lag_table_hist_JJA.csv             15.5 kB
+  /home/fld1/SALLJ/figures/MJO/mjo_sallj_lag_table_hist_MAM.csv             15.7 kB
+  /home/fld1/SALLJ/figures/MJO/mjo_sallj_lag_table_hist_SON.csv             15.7 kB
+  /home/fld1/SALLJ/figures/MJO/mjo_sallj_lag_table_ssp585_ALL.csv           15.3 kB
+  /home/fld1/SALLJ/figures/MJO/sallj_annual_trend.png                      168.8 kB
+  /home/fld1/SALLJ/figures/MJO/sallj_climatology_all_members.png           132.3 kB
+  /home/fld1/SALLJ/figures/MJO/sallj_timeseries_all_members.png           1125.7 kB
+
+Compositing complete.
+
+Compositing complete at Tue Mar 17 20:52:46 EDT 2026
+
+Pipeline complete at Tue Mar 17 20:52:46 EDT 2026
+
+Final outputs in /home/fld1/SALLJ/figures/MJO/:
+total 2.7M
+-rw-rw---- 1 fld1 fld1  53K Mar 17 20:52 mjo_sallj_barplot_hist_ALL.png
+-rw-rw---- 1 fld1 fld1  53K Mar 17 20:52 mjo_sallj_barplot_hist_DJF.png
+-rw-rw---- 1 fld1 fld1  54K Mar 17 20:52 mjo_sallj_barplot_hist_JJA.png
+-rw-rw---- 1 fld1 fld1  56K Mar 17 20:52 mjo_sallj_barplot_hist_MAM.png
+-rw-rw---- 1 fld1 fld1  56K Mar 17 20:52 mjo_sallj_barplot_hist_SON.png
+-rw-rw---- 1 fld1 fld1 146K Mar 17 20:52 mjo_sallj_heatmap_hist_ALL.png
+-rw-rw---- 1 fld1 fld1 145K Mar 17 20:52 mjo_sallj_heatmap_hist_DJF.png
+-rw-rw---- 1 fld1 fld1 141K Mar 17 20:52 mjo_sallj_heatmap_hist_JJA.png
+-rw-rw---- 1 fld1 fld1 148K Mar 17 20:52 mjo_sallj_heatmap_hist_MAM.png
+-rw-rw---- 1 fld1 fld1 137K Mar 17 20:52 mjo_sallj_heatmap_hist_SON.png
+-rw-rw---- 1 fld1 fld1 148K Mar 17 20:52 mjo_sallj_heatmap_ssp585_ALL.png
+-rw-rw---- 1 fld1 fld1  16K Mar 17 20:52 mjo_sallj_lag_table_hist_ALL.csv
+-rw-rw---- 1 fld1 fld1  16K Mar 17 20:52 mjo_sallj_lag_table_hist_DJF.csv
+-rw-rw---- 1 fld1 fld1  16K Mar 17 20:52 mjo_sallj_lag_table_hist_JJA.csv
+-rw-rw---- 1 fld1 fld1  16K Mar 17 20:52 mjo_sallj_lag_table_hist_MAM.csv
+-rw-rw---- 1 fld1 fld1  16K Mar 17 20:52 mjo_sallj_lag_table_hist_SON.csv
+-rw-rw---- 1 fld1 fld1  16K Mar 17 20:52 mjo_sallj_lag_table_ssp585_ALL.csv
+-rw-rw---- 1 fld1 fld1 169K Mar 17 20:52 sallj_annual_trend.png
+-rw-rw---- 1 fld1 fld1 133K Mar 17 20:52 sallj_climatology_all_members.png
+-rw-rw---- 1 fld1 fld1 1.1M Mar 17 20:51 sallj_timeseries_all_members.png

@@ -47,12 +47,14 @@ phase_labels = {
 
 # helper functions
 
-def merge_with_rmm(llj_subset, rmm, amplitude_thresh):
+def merge_with_mjo(llj_subset, mjo_subset, amplitude_thresh):
     """
-    Join one member's LLJ series with RMM index and filter active MJO days.
+    Join one member's LLJ series with THAT specific member's MJO index.
     """
     llj_indexed = llj_subset.set_index('time')[['llj_anom']]
-    merged = llj_indexed.join(rmm, how='inner')
+    mjo_indexed = mjo_subset.set_index('time')[['phase', 'amplitude']]
+    
+    merged = llj_indexed.join(mjo_indexed, how='inner')
     merged = merged[merged['amplitude'] > amplitude_thresh].copy()
     return merged
 
@@ -187,7 +189,7 @@ def plot_heatmap(means, pvals, max_lag, tag, title_suffix=''):
     ax.set_ylabel("MJO Phase", fontsize=10)
     ax.set_title(
         f"Lag Composite: SALLJ Anomaly Response to MJO Forcing\n"
-        f"MRI-ESM2-0  |  Active MJO amp > 1.0  |  Season: {tag}{title_suffix}\n"
+        f"MRI-ESM2-0  |  Active Model-MJO amp > 1.0  |  Season: {tag}{title_suffix}\n"
         "Dots = p < 0.05,  dashed box = p < 0.10",
         fontsize=10, fontweight='bold'
     )
@@ -231,7 +233,7 @@ def plot_phase_barplot(comp_df, tag):
     )
     ax.set_ylabel("LLJ Anomaly (m/s)")
     ax.set_title(
-        f"Lag-0 SALLJ Composite by MJO Phase  |  Season: {tag}\n"
+        f"Lag-0 SALLJ Composite by Model-MJO Phase  |  Season: {tag}\n"
         "error bars = 95% bootstrap CI",
         fontweight='bold'
     )
@@ -260,45 +262,23 @@ if __name__ == '__main__':
     print(f"Data dir   : {DATA_DIR}")
 
     # Dynamically grab CPUs from SLURM, falling back to 32 if not found
-
     N_JOBS = int(os.environ.get('SLURM_CPUS_PER_TASK', 32))
 
-    # load RMM index
+    # 1. Load Model MJO index
+    MJO_FILE = DATA_DIR / 'model_mjo_index.csv'
 
-    RMM_FILE = DATA_DIR / 'rmm_index.txt'
-
-    if not RMM_FILE.exists():
+    if not MJO_FILE.exists():
         raise FileNotFoundError(
-            f"RMM index not found at {RMM_FILE}\n"
-            "Download from: http://www.bom.gov.au/climate/mjo/graphics/rmm.74toRealtime.txt\n"
-            f"and save to: {RMM_FILE}"
+            f"Model MJO index not found at {MJO_FILE}\n"
+            "Run calc_model_mjo.py first to generate this file."
         )
 
-    rmm_rows = []
-    with open(RMM_FILE, 'r') as f:
-        for line in f:
-            parts = line.strip().split()
-            if len(parts) < 7:
-                continue
-            try:
-                year = int(parts[0])
-            except ValueError:
-                continue
-            rmm_rows.append({
-                'year': year, 'month': int(parts[1]), 'day': int(parts[2]),
-                'rmm1': float(parts[3]), 'rmm2': float(parts[4]),
-                'phase': int(parts[5]), 'amplitude': float(parts[6]),
-            })
+    model_mjo = pd.read_csv(MJO_FILE, parse_dates=['time'])
+    model_mjo['time'] = pd.to_datetime(model_mjo['time']).dt.normalize()
 
-    rmm = pd.DataFrame(rmm_rows)
-    rmm['time'] = pd.to_datetime(rmm[['year', 'month', 'day']])
-    rmm = rmm.set_index('time').drop(columns=['year', 'month', 'day'])
-    rmm.index = rmm.index.normalize()
+    print(f"Model MJO data loaded: {len(model_mjo)} rows")
 
-    print(f"RMM loaded: {rmm.index[0].date()} to {rmm.index[-1].date()}")
-
-    # load LLJ data
-
+    # 2. Load LLJ data
     LLJ_FILE = DATA_DIR / 'sallj_index_full.csv'
 
     if not LLJ_FILE.exists():
@@ -315,8 +295,7 @@ if __name__ == '__main__':
     print(f"Experiments: {llj_full['experiment'].unique()}")
     print(f"Date range: {llj_full['time'].min().date()} to {llj_full['time'].max().date()}")
 
-    # historical composite
-
+    # 3. Historical Composites
     hist_llj = llj_full[llj_full['experiment'] == 'historical'].copy()
 
     print(f"\nHistorical LLJ rows: {len(hist_llj)}")
@@ -334,9 +313,18 @@ if __name__ == '__main__':
 
         member_merged = []
         for member in subset['member'].unique():
-            m_data = subset[subset['member'] == member][['time', 'llj_anom']]
-            merged = merge_with_rmm(m_data, rmm, AMPLITUDE_THRESH)
+            # Get LLJ data for this member
+            m_data_llj = subset[subset['member'] == member][['time', 'llj_anom']]
+            
+            # Get MJO data for this specific member and experiment
+            m_data_mjo = model_mjo[
+                (model_mjo['member'] == member) & 
+                (model_mjo['experiment'] == 'historical')
+            ]
+            
+            merged = merge_with_mjo(m_data_llj, m_data_mjo, AMPLITUDE_THRESH)
             if len(merged) > 0:
+                merged['member'] = member
                 member_merged.append(merged)
 
         if not member_merged:
@@ -379,22 +367,24 @@ if __name__ == '__main__':
         comp_df = pd.DataFrame(comp_rows).T
         plot_phase_barplot(comp_df, tag)
 
-    # ssp585 composite
-
+    # 4. SSP585 Composites
     print(f"\n{'='*60}")
     print("  SSP585 composite (r1i1p1f1, all seasons)")
     print(f"{'='*60}")
 
     ssp_llj = llj_full[llj_full['experiment'] == 'ssp585'].copy()
 
-    ssp_merged_list = []
-    m_data     = ssp_llj[['time', 'llj_anom']]
-    ssp_merged = merge_with_rmm(m_data, rmm, AMPLITUDE_THRESH)
+    m_data_llj = ssp_llj[['time', 'llj_anom']]
+    m_data_mjo = model_mjo[
+        (model_mjo['member'] == 'r1i1p1f1') & 
+        (model_mjo['experiment'] == 'ssp585')
+    ]
+    
+    ssp_merged = merge_with_mjo(m_data_llj, m_data_mjo, AMPLITUDE_THRESH)
+    
     if len(ssp_merged) > 0:
-        ssp_merged_list.append(ssp_merged)
-        print(f"    SSP585 x RMM overlap: {len(ssp_merged)} active MJO days")
-        print("     NOTE: RMM overlap limited to observed period; interpret with caution.")
-
+        print(f"    SSP585 active MJO days: {len(ssp_merged)}")
+        
         ssp_full_for_lag = (
             ssp_llj[['time', 'llj_anom']]
             .set_index('time')['llj_anom']
@@ -402,23 +392,24 @@ if __name__ == '__main__':
         ssp_full_for_lag.index = ssp_full_for_lag.index.normalize()
 
         ssp_results = run_lag_composites(
-            pd.concat(ssp_merged_list), ssp_full_for_lag, N_BOOTSTRAP, MAX_LAG, N_JOBS
+            ssp_merged, ssp_full_for_lag, N_BOOTSTRAP, MAX_LAG, N_JOBS
         )
+        
         save_lag_table(
             ssp_results['means'], ssp_results['pvals'],
             ssp_results['ci_lo'], ssp_results['ci_hi'],
             ssp_results['ns'], MAX_LAG, 'ssp585_ALL'
         )
+        
+        # No more arbitrary observational cutoff limit! 
         plot_heatmap(
             ssp_results['means'], ssp_results['pvals'], MAX_LAG, 'ssp585_ALL',
-            title_suffix='\nCAUTION: RMM overlap period only (~2015 onward)'
+            title_suffix='  |  Intrinsic Model MJO'
         )
     else:
-        print("  No SSP585 x RMM overlap found (RMM may not extend past 2015).")
-        print("  SSP585 compositing requires a model-derived MJO index.")
+        print("  No SSP585 active MJO overlap found.")
 
     # summary
-
     print("\n\nSummary of output files:")
     for f in sorted(FIG_DIR.iterdir()):
         size_kb = f.stat().st_size / 1024

@@ -1,5 +1,5 @@
-# SALLJ Detection  —  HPCC version
-# Methodology: Wang & Fu (2004), J. Climate 17:1247-1262
+# SALLJ detection script
+# We use the method from Wang & Fu (2004)
 
 import os
 import warnings
@@ -11,6 +11,8 @@ import intake
 import dask
 from dask.distributed import Client, LocalCluster
 from xmip.preprocessing import combined_preprocessing
+from matplotlib import pyplot as plt
+import seaborn as sns
 
 
 SCRIPT_DIR  = Path(__file__).resolve().parent
@@ -123,7 +125,7 @@ if __name__ == '__main__':
         source_id='MRI-ESM2-0',
         table_id='day',
         experiment_id='historical',
-        variable_id='va',
+        variable_id=['va', 'ua', 'zg'],
         member_id=HIST_MEMBERS,
     )
 
@@ -133,7 +135,7 @@ if __name__ == '__main__':
         source_id='MRI-ESM2-0',
         table_id='day',
         experiment_id='ssp585',
-        variable_id='va',
+        variable_id=['va', 'ua', 'zg'],
         member_id='r1i1p1f1',
     )
 
@@ -476,6 +478,362 @@ if __name__ == '__main__':
     plt.savefig(FIG_DIR / 'sallj_annual_trend.png', dpi=150, bbox_inches='tight')
     plt.close()
     print(f"Saved: {FIG_DIR / 'sallj_annual_trend.png'}")
+
+    # seasonal Meridional Wind cross section plots
+
+    print("\nGenerating Seasonal Cross-Section Plots...")
+    
+    # target slice
+
+    cross_lat = -20.5
+    lon_slice = slice(270, 330)
+    
+    # Extract and subset the 3D 'va' data (averaging across historical members)
+    va_hist_sub = hist_ds['va'].sel(lat=cross_lat, method='nearest').sel(lon=lon_slice).mean(dim='member_id')
+    va_ssp_sub  = ssp_dict[ssp_key]['va'].sel(lat=cross_lat, method='nearest').sel(lon=lon_slice).squeeze()
+    
+    # Define the same seasons used in MJO.py
+    seasons_dict = {
+        'ALL': list(range(1, 13)),
+        'DJF': [12, 1, 2],
+        'MAM': [3, 4, 5],
+        'JJA': [6, 7, 8],
+        'SON': [9, 10, 11],
+    }
+    
+    hist_seasons = {}
+    ssp_seasons  = {}
+    anom_seasons = {}
+    
+    # Compute the seasonal time-means utilizing Dask
+    for s_name, s_months in seasons_dict.items():
+        print(f"  Computing mean for {s_name}...")
+        if s_name == 'ALL':
+            h_mean = va_hist_sub.mean(dim='time').load()
+            s_mean = va_ssp_sub.mean(dim='time').load()
+        else:
+            # Filter by month and compute mean
+            h_mean = va_hist_sub.isel(time=va_hist_sub.time.dt.month.isin(s_months)).mean(dim='time').load()
+            s_mean = va_ssp_sub.isel(time=va_ssp_sub.time.dt.month.isin(s_months)).mean(dim='time').load()
+            
+        # Convert Pascals to hPa for plotting
+        h_mean = h_mean.assign_coords(plev=h_mean.plev / 100)
+        s_mean = s_mean.assign_coords(plev=s_mean.plev / 100)
+        
+        hist_seasons[s_name] = h_mean
+        ssp_seasons[s_name]  = s_mean
+        anom_seasons[s_name] = s_mean - h_mean
+
+    # Define a helper function to plot the 1x5 grid
+    def plot_seasonal_cross_section(data_dict, title_prefix, filename, cmap='RdBu_r'):
+        sns.set_style('white')
+        fig, axes = plt.subplots(nrows=1, ncols=5, figsize=(22, 4.5), sharey=True, sharex=True)
+        
+        # Determine global max for a symmetric colorbar centered on 0
+        vmax = max([abs(v.max().item()) for v in data_dict.values()])
+        vmin = -vmax
+        
+        for ax, (s_name, data) in zip(axes, data_dict.items()):
+            im = data.plot(ax=ax, add_colorbar=False, cmap=cmap, vmin=vmin, vmax=vmax)
+            ax.set_ylim(1000, 300)
+            ax.set_title(f'{s_name}', fontsize=12)
+            ax.set_xlabel('Longitude (°E)')
+            
+            if ax == axes[0]:
+                ax.set_ylabel('Pressure (hPa)')
+            else:
+                ax.set_ylabel('')
+        
+        # Position colorbar
+        cbar_ax = fig.add_axes([0.91, 0.15, 0.015, 0.7]) 
+        fig.colorbar(im, cax=cbar_ax, label=f'{title_prefix} Meridional Wind Speed (m/s)')
+        
+        # Use tight_layout to handle spacing, leaving room for the manual colorbar
+        plt.tight_layout(rect=[0, 0, 0.9, 1]) 
+        
+        out_path = FIG_DIR / filename
+        plt.savefig(out_path, dpi=300, bbox_inches='tight')
+        plt.close()
+        print(f"  Saved: {out_path}")
+
+    # Execute plotting
+    print("Plotting historical cross-sections")
+    plot_seasonal_cross_section(hist_seasons, "Historical (1979-2014)", "sallj_cross_section_hist.png")
+    
+    print("Plotting SSP585 cross-sections")
+    plot_seasonal_cross_section(ssp_seasons, "SSP585 (2015-2100)", "sallj_cross_section_ssp585.png")
+    
+    print("Plotting Anomaly cross-sections")
+    plot_seasonal_cross_section(anom_seasons, "SSP585 Anomalous", "sallj_cross_section_anom.png")
+
+    # Wang and Fu reversal picture
+
+    # =========================================================================
+    # Figure 9: Wang & Fu (2004) Reversal Composites
+    # =========================================================================
+    print("\nGenerating Wang & Fu Reversal Plot (Figure 9)...")
+    
+    # We will use member r1i1p1f1 for the 3D fields to save memory
+    mem = 'r1i1p1f1'
+    
+    # Isolate the July index for this specific member
+    idx_jul = hist_df[mem][hist_df.index.month == 7].copy()
+    
+    # Define the spatial domain for Figure 9 (Equator to 50S, 120W to 20W)
+    # CMIP6 longitudes are 0-360, so 120W -> 240, 20W -> 340
+    lat_slice = slice(-50, 0)
+    lon_slice = slice(240, 340) 
+    
+    ds_mem = hist_ds.sel(member_id=mem)
+    va_850 = ds_mem['va'].sel(plev=85000, method='nearest').sel(lat=lat_slice, lon=lon_slice)
+    ua_850 = ds_mem['ua'].sel(plev=85000, method='nearest').sel(lat=lat_slice, lon=lon_slice)
+    zg_700 = ds_mem['zg'].sel(plev=70000, method='nearest').sel(lat=lat_slice, lon=lon_slice)
+    
+    # Calculate index variance for the regression denominator
+    X = xr.DataArray(idx_jul.values, coords=[('time', idx_jul.index)])
+    X_var = X.var(dim='time')
+    
+    lags = [-4, -2, 0] # Day -4, Day -2, Day 0
+    
+    fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(8, 12), sharex=True, sharey=True)
+    
+    for i, lag in enumerate(lags):
+        print(f"  Computing regression for lag {lag}...")
+        
+        # Shift the index to get the corresponding lagged dates
+        lag_dates = idx_jul.index + pd.Timedelta(days=lag)
+        
+        # Keep only dates valid in the dataset
+        valid_mask = lag_dates.isin(va_850.time.values)
+        valid_base_dates = idx_jul.index[valid_mask]
+        valid_lag_dates = lag_dates[valid_mask]
+        
+        # Subset the index and compute anomalies
+        X_valid = xr.DataArray(idx_jul.loc[valid_base_dates].values, coords=[('time', valid_lag_dates)])
+        X_valid = X_valid - X_valid.mean(dim='time')
+        
+        # Subset the 3D fields and compute anomalies
+        v_field = va_850.sel(time=valid_lag_dates)
+        u_field = ua_850.sel(time=valid_lag_dates)
+        z_field = zg_700.sel(time=valid_lag_dates)
+        
+        v_field = v_field - v_field.mean(dim='time')
+        u_field = u_field - u_field.mean(dim='time')
+        z_field = z_field - z_field.mean(dim='time')
+        
+        # Calculate Regression slope and scale to +5 m/s southerly index
+        cov_v = (v_field * X_valid).mean(dim='time')
+        cov_u = (u_field * X_valid).mean(dim='time')
+        cov_z = (z_field * X_valid).mean(dim='time')
+        
+        v_reg = (cov_v / X_var) * 5.0
+        u_reg = (cov_u / X_var) * 5.0
+        z_reg = (cov_z / X_var) * 5.0
+        
+        # Push through Dask workers
+        v_reg, u_reg, z_reg = dask.compute(v_reg, u_reg, z_reg)
+        
+        # Plotting
+        ax = axes[i]
+        lons_plot = z_reg.lon - 360 # Convert to -180 to 180 for standard display
+        lats_plot = z_reg.lat
+        
+        # Color contour for 700-hPa height anomalies
+        cf = ax.contourf(lons_plot, lats_plot, z_reg, levels=np.linspace(-30, 30, 13), cmap='RdBu_r', extend='both')
+        
+        # Subsample vectors for readable quiver
+        skip = 2 
+        q = ax.quiver(lons_plot[::skip], lats_plot[::skip], u_reg.values[::skip, ::skip], v_reg.values[::skip, ::skip], 
+                      color='black', scale=40, width=0.003)
+                      
+        ax.set_title(f'Day {lag}', fontsize=12)
+        ax.set_ylabel('Latitude', fontsize=10)
+        
+        if i == 2: # Bottom panel configuration
+            ax.set_xlabel('Longitude', fontsize=10)
+            ax.quiverkey(q, X=0.9, Y=-0.15, U=5, label='5 m/s', labelpos='E')
+            
+    fig.subplots_adjust(right=0.85)
+    cbar_ax = fig.add_axes([0.88, 0.15, 0.03, 0.7])
+    fig.colorbar(cf, cax=cbar_ax, label='700-hPa Geopotential Height Anomaly (m)')
+    
+    plt.suptitle("Reversal Composites (Scaled to 5 m/s Southerly LLJ)\n850-hPa Winds (vectors) & 700-hPa Height (color)", 
+                 y=0.95, fontsize=14, fontweight='bold')
+                 
+    out_path = FIG_DIR / 'wang_and_fu_fig9_reversal.png'
+    plt.savefig(out_path, dpi=300, bbox_inches='tight')
+    plt.close()
+    print(f"  Saved: {out_path}")
+
+    # plot MJO during reversal events
+
+# =========================================================================
+    # NEW PLOTTING BLOCK: Lagged Large-Scale Pressure (500-hPa Height)
+    # =========================================================================
+    print("\nGenerating Lagged Reversal Composites (Days -2 to +2)...")
+    
+    # We will use the first historical member
+    mem = 'r1i1p1f1'
+    idx_all = hist_df[mem].copy()
+    
+    # 1. Define Base Reversal Days (Day 0)
+    REVERSAL_THRESH = -2.0
+    reversal_dates = idx_all[idx_all <= REVERSAL_THRESH].index
+    print(f"  Found {len(reversal_dates)} base reversal days.")
+    
+    # 2. Extract 500-hPa Geopotential Height
+    lat_wide = slice(-80, 20)
+    lon_wide = slice(150, 360) 
+    
+    zg_500 = hist_ds.sel(member_id=mem)['zg'].sel(
+        plev=50000, method='nearest'
+    ).sel(lat=lat_wide, lon=lon_wide)
+    
+    # 3. Compute Climatology once
+    print("  Computing climatology through Dask (this may take a moment)...")
+    # We load this once to speed up the loop below
+    zg_clim = zg_500.mean(dim='time').load() 
+    
+    # 4. Define Lags and Setup Plot
+    lags = [-2, -1, 0, 1, 2]
+    lag_names = ['Day -2', 'Day -1', 'Day 0 (Reversal)', 'Day +1', 'Day +2']
+    
+    # Tall figure to accommodate 5 rows
+    fig, axes = plt.subplots(nrows=5, ncols=1, figsize=(12, 22), sharex=True, sharey=True)
+    import matplotlib.patches as patches
+    
+    for i, lag in enumerate(lags):
+        print(f"  Computing composite for {lag_names[i]}...")
+        
+        # Shift the dates by 'lag' days
+        shifted_dates = reversal_dates + pd.Timedelta(days=lag)
+        
+        # Filter for dates that actually exist in the 3D dataset
+        valid_dates = shifted_dates[shifted_dates.isin(zg_500.time.values)]
+        
+        # Calculate Mean for this lag and get Anomaly
+        zg_lag_mean = zg_500.sel(time=valid_dates).mean(dim='time')
+        zg_anom = (zg_lag_mean - zg_clim).load() 
+        
+        # Plotting
+        ax = axes[i]
+        lons = zg_anom.lon
+        lats = zg_anom.lat
+        
+        cf = ax.contourf(
+            lons, lats, zg_anom, 
+            levels=np.linspace(-60, 60, 13), 
+            cmap='PuOr_r', 
+            extend='both'
+        )
+        
+        # Draw bounding box
+        sallj_box = patches.Rectangle(
+            (295, -25), 10, 10, linewidth=2, edgecolor='black', facecolor='none', linestyle='--'
+        )
+        ax.add_patch(sallj_box)
+        
+        # Only add the text to the top plot to avoid clutter
+        if i == 0:
+            ax.text(300, -13, 'SALLJ Domain', color='black', weight='bold', ha='center')
+            
+        ax.set_title(f'{lag_names[i]}', fontsize=14, fontweight='bold')
+        ax.set_ylabel('Latitude', fontsize=12)
+        ax.grid(True, linestyle=':', alpha=0.6)
+
+    # X-axis label only goes on the bottom plot
+    axes[-1].set_xlabel('Longitude (°E)', fontsize=12)
+    
+    # Setup shared colorbar
+    fig.subplots_adjust(right=0.88)
+    cbar_ax = fig.add_axes([0.90, 0.15, 0.02, 0.7])
+    cbar = fig.colorbar(cf, cax=cbar_ax)
+    cbar.set_label('500-hPa Geopotential Height Anomaly (m)', fontsize=12)
+    
+    plt.suptitle(f'Evolution of 500-hPa Height Anomalies Around SALLJ Reversals', 
+                 fontsize=18, fontweight='bold', y=0.92)
+    
+    out_path = FIG_DIR / 'reversal_evolution_zg_anom.png'
+    plt.savefig(out_path, dpi=300, bbox_inches='tight')
+    plt.close()
+    print(f"  Saved: {out_path}")
+
+    # =========================================================================
+    # NEW PLOTTING BLOCK: Large-Scale Pressure (500-hPa Height) 
+    # Active Northerly vs. Reversed Southerly SALLJ
+    # =========================================================================
+    print("\nGenerating Large-Scale SALLJ Composites (Active vs Reversed)...")
+    
+    # We will use the first historical member
+    mem = 'r1i1p1f1'
+    idx_all = hist_df[mem].copy()
+    
+    # 1. Define Active and Reversal Days
+    ACTIVE_THRESH = 2.0
+    REVERSAL_THRESH = -2.0
+    
+    active_dates = idx_all[idx_all >= ACTIVE_THRESH].index
+    reversal_dates = idx_all[idx_all <= REVERSAL_THRESH].index
+    
+    print(f"  Found {len(active_dates)} active northerly days.")
+    print(f"  Found {len(reversal_dates)} reversed southerly days.")
+    
+    # 2. Extract 500-hPa Geopotential Height
+    lat_wide = slice(-80, 20)
+    lon_wide = slice(150, 360) 
+    
+    zg_500 = hist_ds.sel(member_id=mem)['zg'].sel(
+        plev=50000, method='nearest'
+    ).sel(lat=lat_wide, lon=lon_wide)
+    
+    # 3. Filter for dates that exist in our loaded 3D dataset
+    valid_active = active_dates[active_dates.isin(zg_500.time.values)]
+    valid_reversals = reversal_dates[reversal_dates.isin(zg_500.time.values)]
+    
+    # 4. Calculate Climatological Mean vs. Composite Means
+    print("  Computing means through Dask (this may take a moment)...")
+    zg_clim = zg_500.mean(dim='time')
+    zg_act_mean = zg_500.sel(time=valid_active).mean(dim='time')
+    zg_rev_mean = zg_500.sel(time=valid_reversals).mean(dim='time')
+    
+    # The Anomaly isolates the specific pressure signals
+    zg_anom_act = (zg_act_mean - zg_clim).load()
+    zg_anom_rev = (zg_rev_mean - zg_clim).load() 
+    
+    # 5. Plotting the 2-panel figure
+    fig, axes = plt.subplots(nrows=2, ncols=1, figsize=(12, 10), sharex=True, sharey=True)
+    
+    lons = zg_anom_act.lon
+    lats = zg_anom_act.lat
+    
+    # Panel 1: Active Northerly
+    cf1 = axes[0].contourf(lons, lats, zg_anom_act, levels=np.linspace(-60, 60, 13), cmap='PuOr_r', extend='both')
+    axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+    axes[0].set_ylabel('Latitude', fontsize=12)
+    
+    # Panel 2: Reversed Southerly
+    cf2 = axes[1].contourf(lons, lats, zg_anom_rev, levels=np.linspace(-60, 60, 13), cmap='PuOr_r', extend='both')
+    axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+    axes[1].set_ylabel('Latitude', fontsize=12)
+    axes[1].set_xlabel('Longitude (°E)', fontsize=12)
+    
+    import matplotlib.patches as patches
+    for ax in axes:
+        # Draw a bounding box for the general SALLJ region
+        sallj_box = patches.Rectangle((295, -25), 10, 10, linewidth=2, edgecolor='black', facecolor='none', linestyle='--')
+        ax.add_patch(sallj_box)
+        ax.grid(True, linestyle=':', alpha=0.6)
+    
+    # Setup shared colorbar
+    fig.subplots_adjust(right=0.88)
+    cbar_ax = fig.add_axes([0.90, 0.15, 0.02, 0.7])
+    cbar = fig.colorbar(cf1, cax=cbar_ax)
+    cbar.set_label('500-hPa Geopotential Height Anomaly (m)', fontsize=12)
+    
+    out_path = FIG_DIR / 'sallj_active_vs_reversed_zg_anom.png'
+    plt.savefig(out_path, dpi=300, bbox_inches='tight')
+    plt.close()
+    print(f"  Saved: {out_path}")
 
     client.close()
     print("\nDask client closed. Detection complete.")

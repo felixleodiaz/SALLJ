@@ -1,5 +1,5 @@
-# MJO – SALLJ Compositing  —  HPCC version
-# Wheeler & Hendon (2004) RMM × Wang & Fu (2004) LLJ index
+# MJO and SALLJ comparison
+# Uses Wheeler & Hendon (2004) MJO index and Wang & Fu (2004) SALLJ index
 
 import os
 import warnings
@@ -152,8 +152,13 @@ def save_lag_table(means, pvals, ci_lo, ci_hi, ns, max_lag, tag):
     print(f"  Saved: {fpath}")
     return df
 
-def plot_heatmap(means, pvals, max_lag, tag, title_suffix=''):
+import numpy as np
+import matplotlib.pyplot as plt
+
+def plot_heatmap(means, pvals, max_lag, tag):
+    # Note: I removed 'title_suffix' from the parameters since the title is gone.
     fig, ax = plt.subplots(figsize=(16, 6))
+    
     vmax = np.nanmax(np.abs(means))
     vmax = max(vmax, 0.5)
 
@@ -162,90 +167,53 @@ def plot_heatmap(means, pvals, max_lag, tag, title_suffix=''):
         extent=[-0.5, max_lag + 0.5, 8.5, 0.5],
         cmap='RdBu', vmin=-vmax, vmax=vmax, interpolation='nearest',
     )
+    
+    # Colorbar
     cbar = fig.colorbar(im, ax=ax, pad=0.02, shrink=0.85)
-    cbar.set_label("LLJ Anomaly (m/s)\nblue = stronger northerly jet", fontsize=9)
+    cbar.set_label("LLJ Anomaly (m/s)\nblue = stronger northerly jet", fontsize=10)
 
-    # stippling: p < 0.05
+    # Stippling: p < 0.05 only (boxes removed)
     y05, x05 = np.where(pvals < 0.05)
     if len(x05):
         ax.scatter(x05, y05 + 1, marker='.', color='black',
-                   s=18, zorder=5, label='p < 0.05')
+                   s=25, zorder=5, label='p < 0.05')
 
-    # dashed box: p < 0.10
-    for (pi, li) in zip(*np.where((pvals < 0.10) & (pvals >= 0.05))):
-        ax.add_patch(plt.Rectangle(
-            (li - 0.5, pi + 0.5), 1, 1,
-            lw=1.2, edgecolor='black', facecolor='none',
-            ls='--', zorder=5
-        ))
+    # Add crisp white space between grid cells using minor ticks
+    ax.set_xticks(np.arange(-0.5, max_lag + 1.5, 1), minor=True)
+    ax.set_yticks(np.arange(0.5, 9.5, 1), minor=True)
+    ax.grid(which="minor", color="white", linestyle='-', linewidth=2)
+    ax.tick_params(which="minor", bottom=False, left=False) # Hide minor tick marks
+    
+    # Remove outer black frame so the white grid bleeds to the edges
+    for spine in ax.spines.values():
+        spine.set_visible(False)
 
-    ax.set_xticks(range(0, max_lag + 1))
-    ax.set_xticklabels([f"+{l}d" for l in range(0, max_lag + 1)], fontsize=8)
+    # X-axis ticks: Display every 5 units
+    x_ticks = list(range(0, max_lag + 1, 5))
+    ax.set_xticks(x_ticks)
+    ax.set_xticklabels([f"+{l}d" for l in x_ticks], fontsize=10)
+    
+    # Y-axis ticks
     ax.set_yticks(range(1, 9))
     ax.set_yticklabels(
-        [f"Phase {p}  ({phase_labels[p]})" for p in range(1, 9)], fontsize=9
+        [f"Phase {p}  ({phase_labels[p]})" for p in range(1, 9)], fontsize=10
     )
-    ax.set_xlabel("Lag (days after MJO phase)", fontsize=10)
-    ax.set_ylabel("MJO Phase", fontsize=10)
-    ax.set_title(
-        f"Lag Composite: SALLJ Anomaly Response to MJO Forcing\n"
-        f"MRI-ESM2-0  |  Active Model-MJO amp > 1.0  |  Season: {tag}{title_suffix}\n"
-        "Dots = p < 0.05,  dashed box = p < 0.10",
-        fontsize=10, fontweight='bold'
-    )
-    for l in range(0, max_lag + 1, 5):
-        ax.axvline(l - 0.5, color='white', lw=0.5, alpha=0.4)
+    
+    # Labels
+    ax.set_xlabel("Lag (days after MJO phase)", fontsize=11)
+    ax.set_ylabel("MJO Phase", fontsize=11)
 
+    # Cleaned-up legend
     dot_h = plt.Line2D([0], [0], marker='.', color='black',
-                        ls='none', ms=6, label='p < 0.05')
-    box_h = mpatches.Patch(fc='none', ec='black', ls='--', label='p < 0.10')
-    ax.legend(handles=[dot_h, box_h], fontsize=9,
-              loc='lower right', framealpha=0.85)
+                       ls='none', ms=8, label='p < 0.05')
+    ax.legend(handles=[dot_h], fontsize=10, loc='lower right', framealpha=0.9)
 
     plt.tight_layout()
     fpath = FIG_DIR / f'mjo_sallj_heatmap_{tag}.png'
-    plt.savefig(fpath, dpi=150, bbox_inches='tight')
+    # Bumped DPI to 300 for a sharper, professional export
+    plt.savefig(fpath, dpi=300, bbox_inches='tight') 
     plt.close()
-    print(f"  Saved: {fpath}")
-
-def plot_phase_barplot(comp_df, tag):
-    """Lag-0 barplot for a given season/experiment tag."""
-    fig, ax = plt.subplots(figsize=(10, 5))
-    x = np.arange(1, 9)
-    colors = [
-        'crimson'   if comp_df.loc[p, 'sig_05'] else
-        'salmon'    if comp_df.loc[p, 'sig_10'] else
-        'steelblue'
-        for p in range(1, 9)
-    ]
-    ax.bar(x, comp_df['mean'], color=colors, alpha=0.85,
-           edgecolor='white', width=0.65, zorder=3)
-    ax.errorbar(
-        x, comp_df['mean'],
-        yerr=[comp_df['mean'] - comp_df['ci_lo'],
-              comp_df['ci_hi'] - comp_df['mean']],
-        fmt='none', color='black', capsize=5, lw=1.5, zorder=4
-    )
-    ax.axhline(0, color='black', lw=0.8)
-    ax.set_xticks(x)
-    ax.set_xticklabels(
-        [f"Phase {p}\n{phase_labels[p]}" for p in range(1, 9)], fontsize=8
-    )
-    ax.set_ylabel("LLJ Anomaly (m/s)")
-    ax.set_title(
-        f"Lag-0 SALLJ Composite by Model-MJO Phase  |  Season: {tag}\n"
-        "error bars = 95% bootstrap CI",
-        fontweight='bold'
-    )
-    ax.grid(alpha=0.25, axis='y', zorder=0)
-    sig_h   = mpatches.Patch(color='crimson', alpha=0.85, label='p < 0.05')
-    mar_h   = mpatches.Patch(color='salmon',  alpha=0.85, label='p < 0.10')
-    ins_h   = mpatches.Patch(color='steelblue', alpha=0.85, label='p ≥ 0.10')
-    ax.legend(handles=[sig_h, mar_h, ins_h], fontsize=9)
-    plt.tight_layout()
-    fpath = FIG_DIR / f'mjo_sallj_barplot_{tag}.png'
-    plt.savefig(fpath, dpi=150, bbox_inches='tight')
-    plt.close()
+    
     print(f"  Saved: {fpath}")
 
 
@@ -414,5 +382,110 @@ if __name__ == '__main__':
     for f in sorted(FIG_DIR.iterdir()):
         size_kb = f.stat().st_size / 1024
         print(f"  {str(f):<70s}  {size_kb:6.1f} kB")
+
+    # =========================================================================
+    # NEW PLOTTING BLOCK: SALLJ Cross-Sections by Active MJO Phase
+    # =========================================================================
+    print("\nGenerating SALLJ Meridional Wind Cross-Sections for Active MJO Phases...")
+    
+    import xarray as xr
+    import intake
+    import dask
+    from xmip.preprocessing import combined_preprocessing
+    
+    # 1. Connect to CMIP6 Catalog to grab Daily Meridional Wind (va)
+    url = "https://storage.googleapis.com/cmip6/pangeo-cmip6.json"
+    col = intake.open_esm_datastore(url)
+    
+    # We use the first historical member to save memory
+    mem = 'r1i1p1f1'
+    query_va = dict(
+        source_id='MRI-ESM2-0',
+        table_id='day',
+        experiment_id='historical',
+        variable_id='va',
+        member_id=mem,
+    )
+    
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        cat_va = col.search(**query_va)
+        
+    z_kwargs = {'consolidated': True, 'decode_times': True}
+    with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+        va_dict = cat_va.to_dataset_dict(zarr_kwargs=z_kwargs, preprocess=combined_preprocessing)
+        
+    va_ds = va_dict['CMIP.MRI.MRI-ESM2-0.historical.day.gn']
+    
+    # 2. Extract 3D va cross-section data (~20.5S lat, 280-320 lon)
+    cross_lat = -20.5
+    lon_slice = slice(280, 320)
+    
+    va_cross = va_ds['va'].sel(member_id=mem).sel(lat=cross_lat, method='nearest').sel(lon=lon_slice)
+    
+    # Align time coordinates to Pandas DatetimeIndex
+    try:
+        va_time = va_cross.indexes['time'].to_datetimeindex().normalize()
+    except AttributeError:
+        va_time = pd.to_datetime(va_cross.time.values).normalize()
+    va_cross['time'] = va_time
+    
+    # Convert Pa to hPa for coordinates
+    va_cross = va_cross.assign_coords(plev=va_cross.plev / 100)
+    
+    print("  Computing climatology...")
+    va_clim = va_cross.mean(dim='time').load()
+    
+    # 3. Get Active MJO Dates for this member
+    mjo_mem = model_mjo[(model_mjo['member'] == mem) & 
+                        (model_mjo['experiment'] == 'historical') & 
+                        (model_mjo['amplitude'] > AMPLITUDE_THRESH)]
+    
+    # 4. Plot an 8-panel composite (2 rows, 4 columns)
+    fig, axes = plt.subplots(nrows=2, ncols=4, figsize=(16, 8), sharex=True, sharey=True)
+    axes = axes.flatten()
+    
+    for phase in range(1, 9):
+        print(f"  Computing va composite for Phase {phase}...")
+        phase_dates = mjo_mem[mjo_mem['phase'] == phase]['time']
+        
+        # Filter for dates that exist in our loaded 3D dataset
+        valid_dates = phase_dates[phase_dates.isin(va_cross.time.values)]
+        
+        # Calculate Phase Mean and subtract Climatology to get the Anomaly
+        va_phase = va_cross.sel(time=valid_dates).mean(dim='time')
+        va_anom = (va_phase - va_clim).load()
+        
+        ax = axes[phase-1]
+        
+        # Color contours for meridional wind anomalies
+        # Setting vmax to 3.0 m/s to capture the anomaly range cleanly
+        vmax = 3.0 
+        cf = ax.contourf(
+            va_anom.lon, va_anom.plev, va_anom, 
+            levels=np.linspace(-vmax, vmax, 13), 
+            cmap='RdBu_r', 
+            extend='both'
+        )
+        
+        # Invert Y-axis for standard atmospheric view
+        ax.set_ylim(1000, 300) 
+        ax.set_title(f'Phase {phase}: {phase_labels[phase]}', fontsize=12, fontweight='bold')
+        
+        # Format axes for the grid
+        if phase in [1, 5]:
+            ax.set_ylabel('Pressure (hPa)', fontsize=11)
+        if phase >= 5:
+            ax.set_xlabel('Longitude (°E)', fontsize=11)
+            
+    # Format and save
+    plt.tight_layout(rect=[0, 0, 0.92, 0.95])
+    cbar_ax = fig.add_axes([0.94, 0.15, 0.015, 0.7])
+    fig.colorbar(cf, cax=cbar_ax, label='Meridional Wind Anomaly (m/s)')
+    
+    out_path = FIG_DIR / 'mjo_sallj_cross_section_phases.png'
+    plt.savefig(out_path, dpi=300, bbox_inches='tight')
+    plt.close()
+    print(f"  Saved: {out_path}")
 
     print("\nCompositing complete.")

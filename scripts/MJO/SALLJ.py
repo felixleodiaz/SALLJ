@@ -591,9 +591,9 @@ if __name__ == '__main__':
     lon_slice = slice(240, 340) 
     
     ds_mem = hist_ds.sel(member_id=mem)
-    va_850 = ds_mem['va'].sel(plev=85000, method='nearest').sel(lat=lat_slice, lon=lon_slice)
-    ua_850 = ds_mem['ua'].sel(plev=85000, method='nearest').sel(lat=lat_slice, lon=lon_slice)
-    zg_700 = ds_mem['zg'].sel(plev=70000, method='nearest').sel(lat=lat_slice, lon=lon_slice)
+    va_850 = ds_mem['va'].sel(plev=85000, method='nearest').sel(lat=lat_slice, lon=lon_slice).squeeze()
+    ua_850 = ds_mem['ua'].sel(plev=85000, method='nearest').sel(lat=lat_slice, lon=lon_slice).squeeze()
+    zg_700 = ds_mem['zg'].sel(plev=70000, method='nearest').sel(lat=lat_slice, lon=lon_slice).squeeze()
     
     # Calculate index variance for the regression denominator
     X = xr.DataArray(idx_jul.values, coords=[('time', idx_jul.index)])

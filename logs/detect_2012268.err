@@ -1,0 +1,246 @@
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:811: SyntaxWarning: invalid escape sequence '\g'
+  axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/SALLJ/scripts/MJO/SALLJ.py:816: SyntaxWarning: invalid escape sequence '\l'
+  axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/source.py:77: SerializationWarning: Unable to decode time axis into full numpy.datetime64[ns] objects, continuing using cftime.datetime objects instead, reason: dates out of range. To silence this warning use a coarser resolution 'time_unit' or specify 'use_cftime=True'.
+  ds = xr.open_dataset(url, **xarray_open_kwargs)
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/source.py:77: SerializationWarning: Unable to decode time axis into full numpy.datetime64[ns] objects, continuing using cftime.datetime objects instead, reason: dates out of range. To silence this warning use a coarser resolution 'time_unit' or specify 'use_cftime=True'.
+  ds = xr.open_dataset(url, **xarray_open_kwargs)
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/source.py:77: SerializationWarning: Unable to decode time axis into full numpy.datetime64[ns] objects, continuing using cftime.datetime objects instead, reason: dates out of range. To silence this warning use a coarser resolution 'time_unit' or specify 'use_cftime=True'.
+  ds = xr.open_dataset(url, **xarray_open_kwargs)
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/source.py:77: SerializationWarning: Unable to decode time axis into full numpy.datetime64[ns] objects, continuing using cftime.datetime objects instead, reason: dates out of range. To silence this warning use a coarser resolution 'time_unit' or specify 'use_cftime=True'.
+  ds = xr.open_dataset(url, **xarray_open_kwargs)
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/source.py:77: SerializationWarning: Unable to decode time axis into full numpy.datetime64[ns] objects, continuing using cftime.datetime objects instead, reason: dates out of range. To silence this warning use a coarser resolution 'time_unit' or specify 'use_cftime=True'.
+  ds = xr.open_dataset(url, **xarray_open_kwargs)
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/source.py:77: SerializationWarning: Unable to decode time axis into full numpy.datetime64[ns] objects, continuing using cftime.datetime objects instead, reason: dates out of range. To silence this warning use a coarser resolution 'time_unit' or specify 'use_cftime=True'.
+  ds = xr.open_dataset(url, **xarray_open_kwargs)
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/dask/array/core.py:141: SerializationWarning: Unable to decode time axis into full numpy.datetime64[ns] objects, continuing using cftime.datetime objects instead, reason: dates out of range. To silence this warning use a coarser resolution 'time_unit' or specify 'use_cftime=True'.
+  c = np.asarray(c)
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/dask/array/core.py:141: SerializationWarning: Unable to decode time axis into full numpy.datetime64[ns] objects, continuing using cftime.datetime objects instead, reason: dates out of range. To silence this warning use a coarser resolution 'time_unit' or specify 'use_cftime=True'.
+  c = np.asarray(c)
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/dask/array/core.py:141: SerializationWarning: Unable to decode time axis into full numpy.datetime64[ns] objects, continuing using cftime.datetime objects instead, reason: dates out of range. To silence this warning use a coarser resolution 'time_unit' or specify 'use_cftime=True'.
+  c = np.asarray(c)
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/dask/array/core.py:141: SerializationWarning: Unable to decode time axis into full numpy.datetime64[ns] objects, continuing using cftime.datetime objects instead, reason: dates out of range. To silence this warning use a coarser resolution 'time_unit' or specify 'use_cftime=True'.
+  c = np.asarray(c)
+Traceback (most recent call last):
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/source.py", line 259, in _open_dataset
+    self._ds = xr.combine_by_coords(datasets, **self.xarray_combine_by_coords_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/xarray/structure/combine.py", line 996, in combine_by_coords
+    return merge(
+           ^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/xarray/structure/merge.py", line 984, in merge
+    merge_result = merge_core(
+                   ^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/xarray/structure/merge.py", line 709, in merge_core
+    variables, out_indexes = merge_collected(
+                             ^^^^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/xarray/structure/merge.py", line 302, in merge_collected
+    merged_vars[name] = unique_variable(
+                        ^^^^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/xarray/structure/merge.py", line 150, in unique_variable
+    raise MergeError(
+xarray.structure.merge.MergeError: conflicting values for variable 'time_bnds' on objects to be combined. You can skip this check by specifying compat='override'.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fld1/SALLJ/scripts/MJO/SALLJ.py", line 168, in <module>
+    ssp_dict = cat_ssp.to_dataset_dict(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/pydantic/_internal/_validate_call.py", line 39, in wrapper_function
+    return wrapper(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/pydantic/_internal/_validate_call.py", line 136, in __call__
+    res = self.__pydantic_validator__.validate_python(pydantic_core.ArgsKwargs(args, kwargs))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/core.py", line 686, in to_dataset_dict
+    raise exc
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/core.py", line 682, in to_dataset_dict
+    key, ds = task.result()
+              ^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/core.py", line 833, in _load_source
+    return key, source.to_dask()
+                ^^^^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/source.py", line 272, in to_dask
+    self._load_metadata()
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake/source/base.py", line 283, in _load_metadata
+    self._schema = self._get_schema()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/source.py", line 208, in _get_schema
+    self._open_dataset()
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/source.py", line 264, in _open_dataset
+    raise ESMDataSourceError(
+intake_esm.source.ESMDataSourceError: Failed to load dataset with key='ScenarioMIP.MRI.MRI-ESM2-0.ssp585.day.gn'
+                 You can use `cat['ScenarioMIP.MRI.MRI-ESM2-0.ssp585.day.gn'].df` to inspect the assets/files for this key.
+                 

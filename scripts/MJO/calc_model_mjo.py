@@ -43,10 +43,18 @@ def preprocess_and_load(ds, member_id, time_slice):
     
     return xr.Dataset({'olr': olr, 'u850': u850, 'u200': u200})
 
-def compute_wh2004_anomalies(da):
+def compute_wh2004_anomalies(da, detrend=False):
     """
-    Calculate anomilies using 120 day rolling mean
+    Calculate anomalies using 120 day rolling mean.
+    If detrend=True, removes the linear secular trend over the time dimension 
+    prior to calculating the Day-Of-Year climatology.
     """
+    if detrend:
+        # Fit a 1st degree polynomial (linear trend) along time and subtract it
+        trend = da.polyfit(dim='time', deg=1)
+        fit = xr.polyval(da['time'], trend.polyfit_coefficients)
+        da = da - fit
+        
     # 1. Remove day-of-year mean
     clim = da.groupby('time.dayofyear').mean('time')
     anom = da.groupby('time.dayofyear') - clim
@@ -61,14 +69,17 @@ def compute_wh2004_anomalies(da):
     
     return intraseasonal_anom
 
-def calculate_mjo_index(ds_mem, member_name, experiment_name):
+def calculate_mjo_index(ds_mem, member_name, experiment_name, detrend=False):
     """
     Calculates combined EOFs, PCs, Amplitude, and Phase.
     """
     print(f"  Computing anomalies for {member_name} ({experiment_name})...")
-    olr_anom  = compute_wh2004_anomalies(ds_mem['olr'])
-    u850_anom = compute_wh2004_anomalies(ds_mem['u850'])
-    u200_anom = compute_wh2004_anomalies(ds_mem['u200'])
+    if detrend:
+        print("  Detrending active to remove secular background state trends...")
+        
+    olr_anom  = compute_wh2004_anomalies(ds_mem['olr'], detrend=detrend)
+    u850_anom = compute_wh2004_anomalies(ds_mem['u850'], detrend=detrend)
+    u200_anom = compute_wh2004_anomalies(ds_mem['u200'], detrend=detrend)
     
     # W&H 2004 Normalization: divide by the global variance of each anomaly field
     olr_norm  = olr_anom / olr_anom.std()
@@ -87,22 +98,63 @@ def calculate_mjo_index(ds_mem, member_name, experiment_name):
     # SVD for EOFs
     U, S, Vt = np.linalg.svd(combined_valid, full_matrices=False)
     
+    # =========================================================
+    # EOF ALIGNMENT & SIGN CONVENTION CHECK
+    # Enforce Phase 1 = Indian Ocean, Phase 3 = Maritime Continent
+    # =========================================================
+    lon = ds_mem.lon.values
+    n_lon = len(lon)
+    
+    # Isolate OLR loadings for EOF1 and EOF2
+    eof1_olr = Vt[0, :n_lon]
+    eof2_olr = Vt[1, :n_lon]
+    
+    io_idx = (lon >= 60) & (lon <= 90)     # Indian Ocean
+    mc_idx = (lon >= 110) & (lon <= 140)   # Maritime Continent
+    
+    # Calculate spatial mean loadings for both EOFs
+    eof1_io_load = eof1_olr[io_idx].mean()
+    eof2_io_load = eof2_olr[io_idx].mean()
+    eof1_mc_load = eof1_olr[mc_idx].mean()
+    eof2_mc_load = eof2_olr[mc_idx].mean()
+    
+    # 1. Swap check: Ensure EOF1 captures IO and EOF2 captures MC
+    if abs(eof2_io_load) > abs(eof1_io_load):
+        print("  Swapping EOF1/EOF2 to align with standard spatial modes (EOF1=IO, EOF2=MC).")
+        U[:, [0, 1]] = U[:, [1, 0]]
+        S[[0, 1]] = S[[1, 0]]
+        Vt[[0, 1], :] = Vt[[1, 0], :]
+        
+        eof1_olr = Vt[0, :n_lon]
+        eof2_olr = Vt[1, :n_lon]
+        eof1_io_load = eof1_olr[io_idx].mean()
+        eof2_mc_load = eof2_olr[mc_idx].mean()
+
     # Extract Principal Components (PCs)
-    # Standardize PCs so they have unit variance (RMM index convention)
     PC1 = U[:, 0] * S[0]
     PC2 = U[:, 1] * S[1]
+    
     PC1 = PC1 / np.std(PC1)
     PC2 = PC2 / np.std(PC2)
     
+    # 2. Sign check: Ensure PC1 > 0 means negative OLR in IO (Phase 1)
+    if eof1_io_load > 0:
+        print("  Flipping PC1 sign to ensure Phase 1 = enhanced IO convection.")
+        PC1 = -PC1
+        Vt[0, :] = -Vt[0, :]
+        
+    # 3. Sign check: Ensure PC2 > 0 means negative OLR in MC (Phase 3)
+    if eof2_mc_load > 0:
+        print("  Flipping PC2 sign to ensure Phase 3 = enhanced MC convection.")
+        PC2 = -PC2
+        Vt[1, :] = -Vt[1, :]
+    # =========================================================
+
     # Calculate Amplitude and Phase
-    # Note: the exact sign/order of EOF1 and EOF2 is arbitrary in SVD.
-    # W&H Phase space: Phase 1 starts with negative PC1, negative PC2. 
-    # arctan2 handles the signs automatically to give an angle, which we divide into 8 bins.
     angle = np.arctan2(PC2, PC1) * (180 / np.pi)
     angle = np.where(angle < 0, angle + 360, angle) # 0 to 360
     
-    # Map degrees to 8 phases (45 degrees each, offset by 22.5 to center them)
-    # This formula creates standard 1-8 phase assignment:
+    # Map degrees to 8 phases
     phase = np.floor(((angle + 22.5) % 360) / 45) + 1
     
     amplitude = np.sqrt(PC1**2 + PC2**2)
@@ -166,19 +218,19 @@ if __name__ == '__main__':
     
     mjo_dfs = []
     
-    # Process Historical Members
+    # Process Historical Members (No detrending needed, stationary climate assumed)
     for member in HIST_MEMBERS:
         if member not in hist_ds.member_id.values:
             continue
         print(f"\nProcessing MJO for historical {member}...")
         ds_mem = preprocess_and_load(hist_ds.sel(member_id=member), member, slice('1979-01-01', '2014-12-31'))
-        df = calculate_mjo_index(ds_mem, member, 'historical')
+        df = calculate_mjo_index(ds_mem, member, 'historical', detrend=False)
         mjo_dfs.append(df)
         
-    # Process SSP585
+    # Process SSP585 (Detrending activated to handle 85-year warming trend)
     print("\nProcessing MJO for ssp585 r1i1p1f1...")
     ds_mem = preprocess_and_load(ssp_ds.sel(member_id='r1i1p1f1'), 'r1i1p1f1', slice('2015-01-01', '2100-12-31'))
-    df = calculate_mjo_index(ds_mem, 'r1i1p1f1', 'ssp585')
+    df = calculate_mjo_index(ds_mem, 'r1i1p1f1', 'ssp585', detrend=True)
     mjo_dfs.append(df)
     
     final_mjo_df = pd.concat(mjo_dfs, ignore_index=True)

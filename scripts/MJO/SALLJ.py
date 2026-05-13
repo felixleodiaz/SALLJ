@@ -164,13 +164,13 @@ if __name__ == '__main__':
             zarr_kwargs=z_kwargs, 
             storage_options=storage_options, 
             preprocessing=combined_preprocessing,
-            xarray_combine_by_coords_kwargs={'compat': 'override'}
+            xarray_combine_by_coords_kwargs={'compat': 'override', 'coords': 'minimal'}
         )
         ssp_dict  = cat_ssp.to_dataset_dict(
             zarr_kwargs=z_kwargs, 
             storage_options=storage_options, 
             preprocessing=combined_preprocessing,
-            xarray_combine_by_coords_kwargs={'compat': 'override'}
+            xarray_combine_by_coords_kwargs={'compat': 'override', 'coords': 'minimal'}
         )
 
     print("\nHistorical dataset keys:")

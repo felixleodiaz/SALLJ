@@ -161,14 +161,16 @@ if __name__ == '__main__':
 
     with dask.config.set(**{'array.slicing.split_large_chunks': True}):
         hist_dict = cat_hist.to_dataset_dict(
-            zarr_kwargs=z_kwargs,
-            storage_options=storage_options,
+            zarr_kwargs=z_kwargs, 
+            storage_options=storage_options, 
             preprocessing=combined_preprocessing,
+            xarray_combine_by_coords_kwargs={'compat': 'override'}
         )
-        ssp_dict = cat_ssp.to_dataset_dict(
-            zarr_kwargs=z_kwargs,
-            storage_options=storage_options,
+        ssp_dict  = cat_ssp.to_dataset_dict(
+            zarr_kwargs=z_kwargs, 
+            storage_options=storage_options, 
             preprocessing=combined_preprocessing,
+            xarray_combine_by_coords_kwargs={'compat': 'override'}
         )
 
     print("\nHistorical dataset keys:")
@@ -808,12 +810,12 @@ if __name__ == '__main__':
     
     # Panel 1: Active Northerly
     cf1 = axes[0].contourf(lons, lats, zg_anom_act, levels=np.linspace(-60, 60, 13), cmap='PuOr_r', extend='both')
-    axes[0].set_title(f'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
+    axes[0].set_title(rf'Active Northerly SALLJ (LLJ $\geq$ {ACTIVE_THRESH} m/s)', fontsize=14, fontweight='bold')
     axes[0].set_ylabel('Latitude', fontsize=12)
     
     # Panel 2: Reversed Southerly
     cf2 = axes[1].contourf(lons, lats, zg_anom_rev, levels=np.linspace(-60, 60, 13), cmap='PuOr_r', extend='both')
-    axes[1].set_title(f'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
+    axes[1].set_title(rf'Reversed Southerly SALLJ (LLJ $\leq$ {REVERSAL_THRESH} m/s)', fontsize=14, fontweight='bold')
     axes[1].set_ylabel('Latitude', fontsize=12)
     axes[1].set_xlabel('Longitude (°E)', fontsize=12)
     

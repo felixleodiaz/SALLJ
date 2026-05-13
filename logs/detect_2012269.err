@@ -1,0 +1,118 @@
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/__init__.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+Traceback (most recent call last):
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/source.py", line 259, in _open_dataset
+    self._ds = xr.combine_by_coords(datasets, **self.xarray_combine_by_coords_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/xarray/structure/combine.py", line 983, in combine_by_coords
+    concatenated_grouped_by_data_vars = tuple(
+                                        ^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/xarray/structure/combine.py", line 984, in <genexpr>
+    _combine_single_variable_hypercube(
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/xarray/structure/combine.py", line 656, in _combine_single_variable_hypercube
+    concatenated = _combine_nd(
+                   ^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/xarray/structure/combine.py", line 246, in _combine_nd
+    combined_ids = _combine_all_along_first_dim(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/xarray/structure/combine.py", line 278, in _combine_all_along_first_dim
+    new_combined_ids[new_id] = _combine_1d(
+                               ^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/xarray/structure/combine.py", line 301, in _combine_1d
+    combined = concat(
+               ^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/xarray/structure/concat.py", line 277, in concat
+    return _dataset_concat(
+           ^^^^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/xarray/structure/concat.py", line 552, in _dataset_concat
+    concat_over, equals, concat_dim_lengths, skip_merge = _calc_concat_over(
+                                                          ^^^^^^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/xarray/structure/concat.py", line 447, in _calc_concat_over
+    process_subset_opt(coords, "coords")
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/xarray/structure/concat.py", line 357, in process_subset_opt
+    raise ValueError(
+ValueError: Cannot specify both coords='different' and compat='override'.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fld1/SALLJ/scripts/MJO/SALLJ.py", line 163, in <module>
+    hist_dict = cat_hist.to_dataset_dict(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/pydantic/_internal/_validate_call.py", line 39, in wrapper_function
+    return wrapper(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/pydantic/_internal/_validate_call.py", line 136, in __call__
+    res = self.__pydantic_validator__.validate_python(pydantic_core.ArgsKwargs(args, kwargs))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/core.py", line 686, in to_dataset_dict
+    raise exc
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/core.py", line 682, in to_dataset_dict
+    key, ds = task.result()
+              ^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/core.py", line 833, in _load_source
+    return key, source.to_dask()
+                ^^^^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/source.py", line 272, in to_dask
+    self._load_metadata()
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake/source/base.py", line 283, in _load_metadata
+    self._schema = self._get_schema()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/source.py", line 208, in _get_schema
+    self._open_dataset()
+  File "/home/fld1/miniconda3/envs/llj/lib/python3.12/site-packages/intake_esm/source.py", line 264, in _open_dataset
+    raise ESMDataSourceError(
+intake_esm.source.ESMDataSourceError: Failed to load dataset with key='CMIP.MRI.MRI-ESM2-0.historical.day.gn'
+                 You can use `cat['CMIP.MRI.MRI-ESM2-0.historical.day.gn'].df` to inspect the assets/files for this key.
+                 
+2026-05-12 20:55:49,320 - distributed.scheduler - WARNING - Removing worker 'tcp://127.0.0.1:45603' caused the cluster to lose already computed task(s), which will be recomputed elsewhere: {'_open_dataset-0454e557-3486-4bb3-a7d1-6a297b83453b'} (stimulus_id='handle-worker-cleanup-1778633749.3203914')
+2026-05-12 20:55:49,321 - distributed.scheduler - WARNING - Removing worker 'tcp://127.0.0.1:32997' caused the cluster to lose already computed task(s), which will be recomputed elsewhere: {'_open_dataset-ef173130-f1c8-4298-9222-18fb1e11ac49'} (stimulus_id='handle-worker-cleanup-1778633749.3210783')
+2026-05-12 20:55:49,321 - distributed.scheduler - WARNING - Removing worker 'tcp://127.0.0.1:43411' caused the cluster to lose already computed task(s), which will be recomputed elsewhere: {'_open_dataset-1be9cba9-56d7-44f4-b397-7fde788c0708'} (stimulus_id='handle-worker-cleanup-1778633749.321896')
+2026-05-12 20:55:49,322 - distributed.scheduler - WARNING - Removing worker 'tcp://127.0.0.1:40881' caused the cluster to lose already computed task(s), which will be recomputed elsewhere: {'_open_dataset-84999a74-9b17-4a25-aed6-e459fac425b5'} (stimulus_id='handle-worker-cleanup-1778633749.3223526')
+2026-05-12 20:55:49,322 - distributed.scheduler - WARNING - Removing worker 'tcp://127.0.0.1:40187' caused the cluster to lose already computed task(s), which will be recomputed elsewhere: {'_open_dataset-8e3c979f-14be-4400-a345-1f7831a5619b'} (stimulus_id='handle-worker-cleanup-1778633749.3226204')
+2026-05-12 20:55:49,323 - distributed.scheduler - WARNING - Removing worker 'tcp://127.0.0.1:34759' caused the cluster to lose already computed task(s), which will be recomputed elsewhere: {'_open_dataset-d0b2788f-c96d-4d4d-bebf-5bf8bf474e52'} (stimulus_id='handle-worker-cleanup-1778633749.3231692')
+2026-05-12 20:55:49,323 - distributed.scheduler - WARNING - Removing worker 'tcp://127.0.0.1:39881' caused the cluster to lose already computed task(s), which will be recomputed elsewhere: {'_open_dataset-98fdc8f7-0216-4a28-8e28-1a8bb1779a40'} (stimulus_id='handle-worker-cleanup-1778633749.3235323')
+2026-05-12 20:55:49,324 - distributed.scheduler - WARNING - Removing worker 'tcp://127.0.0.1:36683' caused the cluster to lose already computed task(s), which will be recomputed elsewhere: {'_open_dataset-b5fc024b-cfd0-48ac-a7eb-c3722a561abd'} (stimulus_id='handle-worker-cleanup-1778633749.3241506')
+2026-05-12 20:55:49,324 - distributed.scheduler - WARNING - Removing worker 'tcp://127.0.0.1:34495' caused the cluster to lose already computed task(s), which will be recomputed elsewhere: {'_open_dataset-d5162e63-64e8-4c50-8ad0-0b7ee5cdebb9'} (stimulus_id='handle-worker-cleanup-1778633749.324618')
+2026-05-12 20:55:49,325 - distributed.scheduler - WARNING - Removing worker 'tcp://127.0.0.1:37387' caused the cluster to lose already computed task(s), which will be recomputed elsewhere: {'_open_dataset-9b4bd575-6f28-4225-bb7d-d29103ab3a43'} (stimulus_id='handle-worker-cleanup-1778633749.3252213')
+2026-05-12 20:55:49,325 - distributed.scheduler - WARNING - Removing worker 'tcp://127.0.0.1:45043' caused the cluster to lose already computed task(s), which will be recomputed elsewhere: {'_open_dataset-15a3b2e7-fe1b-4a48-af87-24c828b54e76'} (stimulus_id='handle-worker-cleanup-1778633749.3254411')
+2026-05-12 20:55:49,325 - distributed.scheduler - WARNING - Removing worker 'tcp://127.0.0.1:41493' caused the cluster to lose already computed task(s), which will be recomputed elsewhere: {'_open_dataset-7df44b5d-3991-49d8-8fb5-7c41a85121ea'} (stimulus_id='handle-worker-cleanup-1778633749.325666')
+2026-05-12 20:55:49,326 - distributed.scheduler - WARNING - Removing worker 'tcp://127.0.0.1:42941' caused the cluster to lose already computed task(s), which will be recomputed elsewhere: {'_open_dataset-7be95099-ef3a-47f0-bf41-bf55ca94802e'} (stimulus_id='handle-worker-cleanup-1778633749.3260262')
+2026-05-12 20:55:49,327 - distributed.scheduler - WARNING - Removing worker 'tcp://127.0.0.1:33267' caused the cluster to lose already computed task(s), which will be recomputed elsewhere: {'_open_dataset-d8dddd49-2d21-44f6-a3c2-a9233a8487d1'} (stimulus_id='handle-worker-cleanup-1778633749.3278456')
+2026-05-12 20:55:49,328 - distributed.scheduler - WARNING - Removing worker 'tcp://127.0.0.1:35707' caused the cluster to lose already computed task(s), which will be recomputed elsewhere: {'_open_dataset-b8b34460-1289-431b-aa84-e5aff67919d3'} (stimulus_id='handle-worker-cleanup-1778633749.3280928')

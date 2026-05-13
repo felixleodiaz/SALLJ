@@ -693,7 +693,7 @@ if __name__ == '__main__':
     
     zg_500 = hist_ds.sel(member_id=mem)['zg'].sel(
         plev=50000, method='nearest'
-    ).sel(lat=lat_wide, lon=lon_wide)
+    ).sel(lat=lat_wide, lon=lon_wide).squeeze()
     
     # 3. Compute Climatology once
     print("  Computing climatology through Dask (this may take a moment)...")
@@ -790,7 +790,7 @@ if __name__ == '__main__':
     
     zg_500 = hist_ds.sel(member_id=mem)['zg'].sel(
         plev=50000, method='nearest'
-    ).sel(lat=lat_wide, lon=lon_wide)
+    ).sel(lat=lat_wide, lon=lon_wide).squeeze()
     
     # 3. Filter for dates that exist in our loaded 3D dataset
     valid_active = active_dates[active_dates.isin(zg_500.time.values)]

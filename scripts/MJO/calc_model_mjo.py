@@ -59,6 +59,10 @@ def compute_wh2004_anomalies(da, detrend=False):
     clim = da.groupby('time.dayofyear').mean('time')
     anom = da.groupby('time.dayofyear') - clim
     
+    # fix dates to string before converting to a series
+    if isinstance(da.indexes['time'], xr.CFTimeIndex):
+        da['time'] = da.indexes['time'].to_datetimeindex()
+
     # 2. Remove 120-day trailing mean (interannual/ENSO filter)
     # Pandas rolling is robust for this continuous daily data
     rolling_mean = anom.to_series().unstack('lon').rolling(window=120, min_periods=1).mean()

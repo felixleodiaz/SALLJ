@@ -58,6 +58,10 @@ def compute_llj_index(ds_full, lat_s, lat_n, lon_w, lon_e,
     weights = np.cos(np.deg2rad(va.lat)).broadcast_like(va.isel(time=0))
     llj_xr  = va.weighted(weights).mean(dim=['lat', 'lon'])
 
+    # ensure the time index is converted to standard datetime
+    if isinstance(llj_xr.indexes['time'], xr.CFTimeIndex):
+        llj_xr['time'] = llj_xr.indexes['time'].to_datetimeindex()
+
     series = (
         llj_xr
         .reset_coords(drop=True)
@@ -288,7 +292,7 @@ if __name__ == '__main__':
         })
 
     out_df = pd.DataFrame(long_rows)
-    out_df['time'] = pd.to_datetime(out_df['time'])
+    out_df['time'] = pd.to_datetime([str(t) for t in out_df['time']])
     out_df = out_df.sort_values(['experiment', 'member', 'time']).reset_index(drop=True)
 
     print(f"\nOutput DataFrame shape: {out_df.shape}")

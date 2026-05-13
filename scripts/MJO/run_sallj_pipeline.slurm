@@ -6,6 +6,7 @@
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=128G
 #SBATCH --time=06:00:00
+#SBATCH --partition=hpc
 
 # load python interpreter
 

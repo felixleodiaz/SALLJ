@@ -1,0 +1,151 @@
+
+Job:         2012383
+Node:        hpc05
+CPUs:        32
+Script dir:  /home/fld1/SALLJ/scripts/MJO
+Started:     Sun May 17 22:36:32 EDT 2026
+
+[1/3] Running SALLJ detection
+Script dir : /home/fld1/SALLJ/scripts/MJO
+Project dir: /home/fld1/SALLJ
+Figure dir : /home/fld1/SALLJ/figures/MJO
+Data dir   : /home/fld1/SALLJ/local_data/MJO
+Initializing Dask cluster
+<Client: 'tcp://127.0.0.1:40993' processes=32 threads=32, memory=119.21 GiB>
+Dashboard: http://127.0.0.1:34059/status
+
+Historical entries found:
+   experiment_id member_id
+0     historical  r1i1p1f1
+3     historical  r5i1p1f1
+4     historical  r2i1p1f1
+7     historical  r3i1p1f1
+10    historical  r4i1p1f1
+
+SSP585 entries found:
+  experiment_id member_id
+0        ssp585  r1i1p1f1
+
+--> The keys in the returned dictionary of datasets are constructed as follows:
+	'activity_id.institution_id.source_id.experiment_id.table_id.grid_label'
+█ |----------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████| 100.00% [1/1 01:07<00:00]
+--> The keys in the returned dictionary of datasets are constructed as follows:
+	'activity_id.institution_id.source_id.experiment_id.table_id.grid_label'
+█ |----------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████| 100.00% [1/1 00:58<00:00]
+Historical dataset keys:
+  CMIP.MRI.MRI-ESM2-0.historical.day.gn
+SSP585 dataset keys:
+  ScenarioMIP.MRI.MRI-ESM2-0.ssp585.day.gn
+Processing historical r1i1p1f1...
+  r1i1p1f1: 13149 days, mean=-3.03 m/s
+Processing historical r2i1p1f1...
+  r2i1p1f1: 13149 days, mean=-3.08 m/s
+Processing historical r3i1p1f1...
+  r3i1p1f1: 13149 days, mean=-3.14 m/s
+Processing historical r4i1p1f1...
+  r4i1p1f1: 13149 days, mean=-2.99 m/s
+Processing historical r5i1p1f1...
+  r5i1p1f1: 13149 days, mean=-3.09 m/s
+
+Historical LLJ DataFrame shape: (13149, 5)
+(rows=days, cols=members)
+
+Processing ssp585 (ScenarioMIP.MRI.MRI-ESM2-0.ssp585.day.gn)...
+SSP585: 31411 days, mean=-3.21 m/s
+
+Historical monthly climatology (m/s):
+  Jan: -2.06
+  Feb: -1.46
+  Mar: -1.81
+  Apr: -3.25
+  May: -3.89
+  Jun: -4.17
+  Jul: -4.62
+  Aug: -4.31
+  Sep: -3.31
+  Oct: -2.57
+  Nov: -2.78
+  Dec: -2.46
+
+Monthly 20th-percentile thresholds (m/s):
+  Jan: -5.67
+  Feb: -4.93
+  Mar: -5.56
+  Apr: -7.17
+  May: -8.03
+  Jun: -8.69
+  Jul: -9.41
+  Aug: -9.28
+  Sep: -8.21
+  Oct: -7.04
+  Nov: -6.89
+  Dec: -6.30
+
+Output DataFrame shape: (97156, 6)
+        time    member  experiment  llj_index  llj_anom  active
+0 1979-01-01  r1i1p1f1  historical  -8.165689 -6.107009    True
+1 1979-01-02  r1i1p1f1  historical  -5.567279 -3.508598   False
+2 1979-01-03  r1i1p1f1  historical  -5.820518 -3.761837    True
+3 1979-01-04  r1i1p1f1  historical  -8.852269 -6.793589    True
+4 1979-01-05  r1i1p1f1  historical  -7.868651 -5.809970    True
+5 1979-01-06  r1i1p1f1  historical  -7.644458 -5.585778    True
+6 1979-01-07  r1i1p1f1  historical  -1.596311  0.462370   False
+7 1979-01-08  r1i1p1f1  historical  -0.251875  1.806806   False
+8 1979-01-09  r1i1p1f1  historical  -3.490315 -1.431634   False
+9 1979-01-10  r1i1p1f1  historical  -1.930294  0.128386   False
+
+Saved: /home/fld1/SALLJ/local_data/MJO/sallj_index_full.csv
+Saved: /home/fld1/SALLJ/local_data/MJO/sallj_monthly_clim.csv
+Saved: /home/fld1/SALLJ/local_data/MJO/sallj_monthly_thresh.csv
+Saved: /home/fld1/SALLJ/figures/MJO/sallj_timeseries_all_members.png
+Saved: /home/fld1/SALLJ/figures/MJO/sallj_climatology_all_members.png
+Saved: /home/fld1/SALLJ/figures/MJO/sallj_annual_trend.png
+
+Generating Seasonal Cross-Section Plots...
+  Computing mean for ALL...
+  Computing mean for DJF...
+  Computing mean for MAM...
+  Computing mean for JJA...
+  Computing mean for SON...
+Plotting historical cross-sections
+  Saved: /home/fld1/SALLJ/figures/MJO/sallj_cross_section_hist.png
+Plotting SSP585 cross-sections
+  Saved: /home/fld1/SALLJ/figures/MJO/sallj_cross_section_ssp585.png
+Plotting Anomaly cross-sections
+  Saved: /home/fld1/SALLJ/figures/MJO/sallj_cross_section_anom.png
+
+Generating Wang & Fu Reversal Plot (Figure 9)...
+  Computing regression for lag -4...
+  Computing regression for lag -2...
+  Computing regression for lag 0...
+  Saved: /home/fld1/SALLJ/figures/MJO/wang_and_fu_fig9_reversal.png
+
+Generating Lagged Reversal Composites (Days -2 to +2)...
+  Found 7939 base reversal days.
+  Computing climatology through Dask (this may take a moment)...
+  Computing composite for Day -2...
+  Computing composite for Day -1...
+  Computing composite for Day 0 (Reversal)...
+  Computing composite for Day +1...
+  Computing composite for Day +2...
+  Saved: /home/fld1/SALLJ/figures/MJO/reversal_evolution_zg_anom.png
+
+Generating Large-Scale SALLJ Composites (Active vs Reversed)...
+  Found 2089 active northerly days.
+  Found 7939 reversed southerly days.
+  Computing means through Dask (this may take a moment)...
+  Saved: /home/fld1/SALLJ/figures/MJO/sallj_active_vs_reversed_zg_anom.png
+
+Dask client closed. Detection complete.
+
+Detection complete at Sun May 17 22:57:23 EDT 2026
+
+[2/3] Running Model MJO Calculation
+Initializing Dask cluster
+
+--> The keys in the returned dictionary of datasets are constructed as follows:
+	'activity_id.institution_id.source_id.experiment_id.table_id.grid_label'
+█ |----------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████| 100.00% [1/1 01:53<00:00]
+--> The keys in the returned dictionary of datasets are constructed as follows:
+	'activity_id.institution_id.source_id.experiment_id.table_id.grid_label'
+█ |----------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████| 100.00% [1/1 00:55<00:00]ERROR: Model MJO Calculation script failed with exit code 1

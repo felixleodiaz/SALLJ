@@ -594,14 +594,21 @@ if __name__ == '__main__':
     va_850 = ds_mem['va'].sel(plev=85000, method='nearest').sel(lat=lat_slice, lon=lon_slice).squeeze()
     ua_850 = ds_mem['ua'].sel(plev=85000, method='nearest').sel(lat=lat_slice, lon=lon_slice).squeeze()
     zg_700 = ds_mem['zg'].sel(plev=70000, method='nearest').sel(lat=lat_slice, lon=lon_slice).squeeze()
+
+    # Normalize time coordinates to pandas datetime so .isin() comparisons work
+    for _field in [va_850, ua_850, zg_700]:
+        try:
+            _field['time'] = pd.DatetimeIndex(_field.indexes['time'].to_datetimeindex()).normalize()
+        except AttributeError:
+            _field['time'] = pd.to_datetime(_field.time.values).normalize()
     
     # Calculate index variance for the regression denominator
     X = xr.DataArray(idx_jul.values, coords=[('time', idx_jul.index)])
     X_var = X.var(dim='time')
     
-    lags = [-4, -2, 0] # Day -4, Day -2, Day 0
-    
-    fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(8, 12), sharex=True, sharey=True)
+    lags = [-2, -1, 0, 1, 2]
+
+    fig, axes = plt.subplots(nrows=5, ncols=1, figsize=(8, 20), sharex=True, sharey=True)
     
     for i, lag in enumerate(lags):
         print(f"  Computing regression for lag {lag}...")
@@ -694,6 +701,12 @@ if __name__ == '__main__':
     zg_500 = hist_ds.sel(member_id=mem)['zg'].sel(
         plev=50000, method='nearest'
     ).sel(lat=lat_wide, lon=lon_wide).squeeze()
+
+    # Normalize time coordinates to pandas datetime so .isin() comparisons work
+    try:
+        zg_500['time'] = pd.DatetimeIndex(zg_500.indexes['time'].to_datetimeindex()).normalize()
+    except AttributeError:
+        zg_500['time'] = pd.to_datetime(zg_500.time.values).normalize()
     
     # 3. Compute Climatology once
     print("  Computing climatology through Dask (this may take a moment)...")
@@ -791,6 +804,12 @@ if __name__ == '__main__':
     zg_500 = hist_ds.sel(member_id=mem)['zg'].sel(
         plev=50000, method='nearest'
     ).sel(lat=lat_wide, lon=lon_wide).squeeze()
+
+    # Normalize time coordinates to pandas datetime so .isin() comparisons work
+    try:
+        zg_500['time'] = pd.DatetimeIndex(zg_500.indexes['time'].to_datetimeindex()).normalize()
+    except AttributeError:
+        zg_500['time'] = pd.to_datetime(zg_500.time.values).normalize()
     
     # 3. Filter for dates that exist in our loaded 3D dataset
     valid_active = active_dates[active_dates.isin(zg_500.time.values)]
